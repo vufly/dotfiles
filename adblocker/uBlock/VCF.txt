@@ -1,5 +1,8 @@
 [Adblock Plus 2.0]
 ! Title: Vu Custom Filter
+! Expires: 1 days
+! Version: 0.1
+
 !One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with ! will be ignored.
 !https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
 
