@@ -1,0 +1,18 @@
+!One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with ! will be ignored.
+!https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
+
+! Outlook web mail free
+outlook.live.com##div:if(> div > div > i[data-icon-name="OutlookLogo"])
+
+! 10/10/2019 https://maclife.vn
+maclife.vn##.mfp-inline-holder.mfp-container
+maclife.vn##.mfp-ready.mfp-auto-cursor.mfp-close-btn-in.mfp-wrap
+maclife.vn###wpfront-notification-bar
+maclife.vn##.adrotate_widgets
+
+! 10/10/2019 https://beeng.net
+beeng.net##.fancybox-overlay
+beeng.net##.fancybox-wrap
+
+! 10/10/2019 https://tinhte.vn
+tinhte.vn##.root > div:nth-of-type(1)
