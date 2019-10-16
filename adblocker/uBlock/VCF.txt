@@ -21,3 +21,10 @@ beeng.net##.fancybox-wrap
 
 ! 10/10/2019 https://tinhte.vn
 tinhte.vn##.root > div:nth-of-type(1)
+
+! 10/16/2019 https://truyenqq.com
+||truyenqq.com/qc-new/*$image
+truyenqq.com##.popup_close
+truyenqq.com###image_popup_wrapper
+truyenqq.com###image_popup_background
+truyenqq.com##.left-banner
