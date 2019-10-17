@@ -28,3 +28,6 @@ truyenqq.com##.popup_close
 truyenqq.com###image_popup_wrapper
 truyenqq.com###image_popup_background
 truyenqq.com##.left-banner
+
+! 10/17/2019 https://beeng.net
+beeng.net##.fullpage_ads
