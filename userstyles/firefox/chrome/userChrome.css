@@ -1,0 +1,64 @@
+/* Firefox userChrome.css */
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+@-moz-document url(chrome://browser/content/browser.xhtml) {
+  /* Hide windows box */
+  .titlebar-buttonbox-container {
+    display: none;
+  }
+
+  /* reduce title bar space */
+  .titlebar-spacer[type="pre-tabs"],
+  .titlebar-spacer[type="post-tabs"] {
+    width: 0 !important;
+  }
+
+  /* back button */
+  #back-button > .toolbarbutton-icon {
+    background-color: unset !important;
+    background-image: none !important;
+    border: none !important;
+  }
+
+  #forward-button > .toolbarbutton-icon {
+    background-color: unset !important;
+    background-image: none !important;
+    border: none !important;
+  }
+
+  #forward-button:hover > .toolbarbutton-icon, #back-button:hover > .toolbarbutton-icon {
+    background-color: 			var(--color-1) !important;
+  }
+  
+  /* font on tab bigger */
+  .tabbrowser-tab {
+    font-size: 12px !important;
+    font-weight: 500 !important;
+  }
+  
+  /* favicon close */
+  .tabbrowser-tab:not(:hover) .tab-close-button{
+      display:none;
+  }
+  .tabbrowser-tab:not([pinned]):hover .tab-close-button{
+      display:block !important;
+  }
+  .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
+      display: none !important;
+  }
+  .tabbrowser-tab .tab-throbber,.tabbrowser-tab .tab-icon-image,.tabbrowser-tab .tab-sharing-icon-overlay,.tabbrowser-tab .tab-icon-overlay,.tabbrowser-tab .tab-label-container,.tabbrowser-tab .tab-icon-sound {
+      -moz-box-ordinal-group: 2 !important;
+  }
+  .tabbrowser-tab .tab-close-button {
+      margin-left: -2px !important;
+      margin-right: 4px !important;
+  }
+  
+  /* invert status panel */
+  #statuspanel-label {
+    background-color: black !important;
+    color: white !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+  }
+}
