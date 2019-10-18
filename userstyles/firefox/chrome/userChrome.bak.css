@@ -1,0 +1,403 @@
+@namespace url(http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul);
+
+#back-button[disabled="true"] {
+  opacity: 0.35;
+}
+
+#forward-button[disabled="true"] {
+  opacity: 0.35;
+}
+
+#stop-button[disabled="true"] {
+  opacity: 0.35;
+}
+
+#home-button {
+  display: none;
+}
+
+#throbber-box {
+  display: none !important;
+}
+
+#pageActionButton {
+  display: none !important;
+}
+
+#statuspanel-label {
+  background-color: orange !important;
+  border: var(--active-tab-background) !important;
+  color: black !important;
+  font-size: 12px !important;
+  padding: 2px 12px 3px 12px !important;
+  margin-right: 0 !important;
+  z-index: 1000000;
+}
+
+hbox#fullscr-toggler {
+  -moz-binding: url("userChrome.xml#js");
+}
+
+* {
+  --color-0: #0a0a0d;
+  --color-1: #1a1a1d;
+  --color-2: #2a2a2d;
+  --color-3: #3a3a3d;
+  --color-4: #4a4a4d;
+  --color-5: #5a5a5d;
+  --color-6: #6a6a6d;
+  --color-7: #7a7a7d;
+  --color-8: #8a8a8d;
+  --color-9: #9a9a9d;
+  --color-a: #aaaaad;
+  --color-b: #bababd;
+  --color-c: #cacacd;
+  --color-d: #dadadd;
+  --color-e: #eaeaed;
+  --color-f: #fafafd;
+  --url-background: #312d4b;
+  --menu-background: var(--active-tab-background);
+  --sidebar-width: 300px;
+  --sidebar-height: 100%;
+  --sidebar-header-background: var(--color-2);
+  --sidebar-header-color: var(--color-e);
+  --tab-radius: 8px;
+  --tab-min-height: 36px;
+  --tabs-background: var(--color-0);
+  --active-tab-background: #413d5b;
+  --active-tab-color: var(--color-e);
+  --inactive-tab-background: var(--color-1);
+  --inactive-tab-background-hover: var(--url-background);
+  --inactive-tab-color: var(--color-a);
+}
+
+:root {
+  --uc-titlebar-padding: 0;
+}
+
+:root[sizemode="maximized"][tabsintitlebar] {
+  --uc-titlebar-padding: 8px;
+}
+
+#navigator-toolbox {
+  padding-top: var(--uc-titlebar-padding, 0) !important;
+}
+
+.titlebar-buttonbox-container {
+  display: block;
+  position: fixed;
+  top: var(--uc-titlebar-padding, 0);
+  right: 0;
+  height: 40px;
+}
+
+@supports -moz-bool-pref("layout.css.osx-font-smoothing.enabled") {
+  :root {
+    --uc-titlebar-padding: 0px !important;
+  }
+
+  .titlebar-buttonbox-container {
+    left: 0;
+    right: unset;
+  }
+}
+
+#browser {
+  position: absolute;
+}
+
+#appcontent {
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  position: absolute;
+}
+
+#tabbrowser-tabbox {
+  height: 100%;
+  width: 100%;
+}
+
+#sidebar,
+#sidebar-header {
+  background-color: var(--sidebar-header-background) !important;
+  color: var(--sidebar-header-color) !important;
+}
+
+#bookmarksPanel,
+#bookmarks-view,
+#history-panel,
+#historyTree {
+  background-color: var(--inactive-tab-background) !important;
+  color: var(--color-8) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row {
+  border: 0 !important;
+  background-color: var(--inactive-tab-background) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell-text {
+  color: var(--color-c) !important;
+  font-family: Verdana !important;
+  font-size: 12px !important;
+  text-shadow: 1px 1px var(--color-2);
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell-text(hover) {
+  color: var(--color-f) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-cell(hover) {
+  background-color: var(--color-0) !important;
+}
+
+.sidebar-placesTreechildren::-moz-tree-row(selected) {
+  background-color: var(--active-tab-background) !important;
+}
+
+#sidebar {
+  width: 100% !important;
+  height: calc(100% - 44px);
+  position: absolute;
+}
+
+#sidebar-header {
+  width: 100% !important;
+}
+
+#sidebar-box {
+  position: absolute;
+  left: 0;
+  width: var(--sidebar-width);
+  height: var(--sidebar-height);
+  z-index: 1000000;
+  box-shadow: 1px 1px 1px #444;
+}
+
+scrollbar,
+scrollbar * {
+  -moz-appearance: none !important;
+  background: none !important;
+  margin-left: -9px !important;
+  display: none;
+}
+
+#sidebar-splitter {
+  opacity: 0 !important;
+}
+
+:root[uidensity="compact"] .titlebar-buttonbox-container {
+  height: 32px;
+  margin-top: -5px;
+}
+
+#toolbar-menubar[inactive]>.titlebar-buttonbox-container {
+  opacity: 0;
+}
+
+:root[tabsintitlebar] #nav-bar {
+  padding-left: 0 !important;
+}
+
+:root:not([inFullscreen])[tabsintitlebar] #nav-bar {
+  padding-left: 80px !important;
+}
+
+.titlebar-buttonbox-container>.titlebar-buttonbox {
+  height: 100%;
+}
+
+#titlebar {
+  -moz-box-ordinal-group: 2;
+  -moz-appearance: none !important;
+}
+
+.titlebar-placeholder,
+#TabsToolbar .titlebar-spacer {
+  display: none !important;
+}
+
+#navigator-toolbox::after {
+  display: none !important;
+}
+
+@media (-moz-gtk-csd-close-button) {
+  .titlebar-button {
+    -moz-box-orient: vertical;
+  }
+}
+
+menubar,
+toolbar,
+nav-bar {
+  background-color: var(--menu-background) !important;
+}
+
+#urlbar {
+  color: var(--color-e) !important;
+  background-color: var(--url-background) !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.urlbar-history-dropmarker {
+  opacity: 1 !important;
+}
+
+#urlbar ::-moz-selection,
+.searchbar-textbox ::-moz-selection {
+  background-color: var(--color-1) !important;
+}
+
+#urlbar-results {
+  background-color: var(--color-0) !important;
+}
+
+#PlacesToolbar {
+  padding: 7px 0 2px 0;
+}
+
+#PlacesToolbarItems {
+  -moz-box-pack: center;
+}
+
+#PersonalToolbar {
+  background-color: var(--tabs-background) !important;
+}
+
+#PersonalToolbar toolbarbutton {
+  font-family: Arial;
+  font-size: 13px;
+  opacity: 0.35 !important;
+  margin-right: 15px !important;
+  padding: 5px 12px !important;
+}
+
+#PersonalToolbar toolbarbutton .toolbarbutton-icon {
+  margin-right: 10px !important;
+}
+
+#PersonalToolbar toolbarbutton:hover {
+  opacity: 1 !important;
+  background-color: #1a1a1d !important;
+}
+
+.toolbarbutton-1 {
+  --toolbarbutton-hover-background: #1a1a1d !important;
+  --toolbarbutton-active-background: #1a1a1d !important;
+}
+
+#TabsToolbar {
+  background-color: var(--tabs-background) !important;
+  padding-top: 10px !important;
+}
+
+#navigator-toolbox {
+  border-bottom: 0 solid var(--color-1) !important;
+}
+
+#back-button>.toolbarbutton-icon {
+  background-color: unset !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+#forward-button>.toolbarbutton-icon {
+  background-color: unset !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+#forward-button:hover>.toolbarbutton-icon,
+#back-button:hover>.toolbarbutton-icon {
+  background-color: var(--color-1) !important;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-background {
+  background-color: var(--inactive-tab-background) !important;
+  background-image: none !important;
+  border-radius: var(--tab-radius) var(--tab-radius) 0 0 !important;
+}
+
+#TabsToolbar .tabbrowser-tab[selected="true"] {
+  z-index: 999;
+}
+
+#TabsToolbar .tabbrowser-tab[selected="true"] .tab-background {
+  background-color: var(--active-tab-background) !important;
+}
+
+#TabsToolbar .tabbrowser-tab:not([selected="true"]):hover .tab-background {
+  background-color: var(--inactive-tab-background-hover) !important;
+}
+
+#tabbrowser-tabs {
+  margin-left: 0px !important;
+  min-height: 28px !important;
+}
+
+#TabsToolbar>hbox.titlebar-placeholder {
+  display: none !important;
+}
+
+#TabsToolbar .titlebar-placeholder {
+  display: none !important;
+}
+
+#TabsToolbar>hbox.titlebar-placeholder {
+  display: none;
+}
+
+.tabbrowser-tab[fadein]:not([pinned]) {
+  max-width: unset !important;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-line {
+  display: none;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-text {
+  font-family: Verdana !important;
+  font-size: 12px !important;
+  text-shadow: 1px 1px var(--color-2);
+}
+
+#TabsToolbar .tabbrowser-tab:not([selected="true"]) .tab-text {
+  color: var(--inactive-tab-color) !important;
+}
+
+#TabsToolbar .tabbrowser-tab[selected="true"] .tab-text {
+  color: var(--active-tab-color) !important;
+}
+
+#TabsToolbar .tabbrowser-tab .tab-close-button.close-icon {
+  display: none !important;
+}
+
+#TabsToolbar .tabbrowser-tab:not([pinned]):hover .tab-close-button.close-icon {
+  display: inline-block !important;
+}
+
+#TabsToolbar .tabbrowser-tab:not([selected="true"]):not([pinned]):hover .tab-close-button.close-icon {
+  color: var(--color-b) !important;
+}
+
+#TabsToolbar .tabbrowser-tab:not([pinned]) .tab-icon-image {
+  margin-right: 10px !important;
+}
+
+#TabsToolbar .tabbrowser-tab:not([selected="true"]) .tab-icon-image {
+  opacity: 0.5 !important;
+  filter: saturate(0.1);
+}
+
+#TabsToolbar .tabbrowser-tab::after {
+  border: 1px solid var(--color-0) !important;
+  opacity: 1 !important;
+}
+
+#TabsToolbar .tabbrowser-tab::before {
+  display: none !important;
+}

@@ -1,64 +1,154 @@
 /* Firefox userChrome.css */
 
-@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
-@-moz-document url(chrome://browser/content/browser.xhtml) {
-  /* Hide windows box */
-  .titlebar-buttonbox-container {
-    display: none;
-  }
+/* @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); */
 
-  /* reduce title bar space */
-  .titlebar-spacer[type="pre-tabs"],
-  .titlebar-spacer[type="post-tabs"] {
-    width: 0 !important;
-  }
+/* All bar vibrancy transparent */
+#TabsToolbar
+.tab-background-inner,
+#PersonalToolbar,
+#nav-bar,
+.theme-dark,
+.theme-light,
+slider,
+.CodeMirror,
+.devtools-toolbar,
+.message,
+.theme-body,
+.table-widget-empty-text {
+  -moz-appearance: -moz-mac-vibrancy-dark !important;
+  color: white !important;
+}
 
-  /* back button */
-  #back-button > .toolbarbutton-icon {
-    background-color: unset !important;
-    background-image: none !important;
-    border: none !important;
-  }
+.theme-body {
+  background: transparent !important;
+}
 
-  #forward-button > .toolbarbutton-icon {
-    background-color: unset !important;
-    background-image: none !important;
-    border: none !important;
-  }
+/* Hide windows box */
+.titlebar-buttonbox-container {
+  display: none;
+}
 
-  #forward-button:hover > .toolbarbutton-icon, #back-button:hover > .toolbarbutton-icon {
-    background-color: 			var(--color-1) !important;
-  }
-  
-  /* font on tab bigger */
-  .tabbrowser-tab {
-    font-size: 12px !important;
-    font-weight: 500 !important;
-  }
-  
-  /* favicon close */
-  .tabbrowser-tab:not(:hover) .tab-close-button{
-      display:none;
-  }
-  .tabbrowser-tab:not([pinned]):hover .tab-close-button{
-      display:block !important;
-  }
-  .tabbrowser-tab:not([pinned]):hover .tab-icon-image {
-      display: none !important;
-  }
-  .tabbrowser-tab .tab-throbber,.tabbrowser-tab .tab-icon-image,.tabbrowser-tab .tab-sharing-icon-overlay,.tabbrowser-tab .tab-icon-overlay,.tabbrowser-tab .tab-label-container,.tabbrowser-tab .tab-icon-sound {
-      -moz-box-ordinal-group: 2 !important;
-  }
-  .tabbrowser-tab .tab-close-button {
-      margin-left: -2px !important;
-      margin-right: 4px !important;
-  }
-  
-  /* invert status panel */
-  #statuspanel-label {
-    background-color: black !important;
-    color: white !important;
-    font-size: 12px !important;
-    font-weight: 500 !important;
-  }
+/* reduce title bar space */
+.titlebar-spacer[type="pre-tabs"],
+.titlebar-spacer[type="post-tabs"] {
+  width: 0 !important;
+}
+
+.titlebar-spacer[type="pre-tabs"] {
+  border-right: none !important;
+}
+
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+  border: none !important;
+}
+
+/* back button */
+#back-button>.toolbarbutton-icon {
+  background-color: unset !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+#forward-button>.toolbarbutton-icon {
+  background-color: unset !important;
+  background-image: none !important;
+  border: none !important;
+}
+
+/* font on tab bigger */
+.tabbrowser-tab {
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+.tabbrowser-tab[selected] {
+  font-weight: 700 !important;
+  color: white !important;
+}
+
+/* favicon close */
+.tabbrowser-tab:not(:hover) .tab-close-button {
+  display: none;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button {
+  display: block !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-icon-image {
+  display: none !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-throbber[busy] {
+  display: none !important;
+}
+
+.tabbrowser-tab .tab-throbber,
+.tabbrowser-tab .tab-icon-image,
+.tabbrowser-tab .tab-sharing-icon-overlay,
+.tabbrowser-tab .tab-icon-overlay,
+.tabbrowser-tab .tab-label-container,
+.tabbrowser-tab .tab-icon-sound {
+  -moz-box-ordinal-group: 2 !important;
+}
+
+.tabbrowser-tab .tab-close-button {
+  margin-left: -2px !important;
+  margin-right: 4px !important;
+}
+
+/* invert status panel */
+#statuspanel-label {
+  background-color: black !important;
+  color: white !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+}
+
+/* remove maximum/minimum width restriction of sidebar */
+#sidebar {
+  max-width: none !important;
+  min-width: 0px !important;
+}
+
+/* color gradient selected tab line */
+.tab-line {
+  display: none;
+}
+
+.tab-background[selected="true"] .tab-bottom-line {
+  height: 4px;
+  background: linear-gradient(to right, #fc28a8, #03edf9) !important;
+  opacity: 1;
+}
+
+.tab-background:not([selected="true"]) .tab-bottom-line {
+  background: white;
+  height: 0px;
+  opacity: 0;
+}
+
+#navigator-toolbox {
+  /*   border-bottom: 1px solid #000 !important; */
+  border-bottom: none !important;
+}
+
+/* TAB BAR BELOW
+You can set the order of each bar here. 1 for top, and 3 bottom.
+Don't use this one if you are using the multirow version of tabs below.
+Explanation of what each rule affects:
+- #nav-bar is the ID for the URL bar. 
+- #PersonalToolbar the ID for the bookmarks bar.
+- #titlebar should be affects the tabs bar and the menu bar (where file/tools menus are) */
+
+#nav-bar {
+  -moz-box-ordinal-group: 1 !important
+}
+
+#PersonalToolbar {
+  -moz-box-ordinal-group: 2 !important;
+}
+
+#titlebar {
+  -moz-box-ordinal-group: 3 !important
 }
