@@ -3,7 +3,7 @@
 /* @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"); */
 
 /* All bar vibrancy transparent */
-#TabsToolbar
+#TabsToolbar,
 .tab-background-inner,
 #PersonalToolbar,
 #nav-bar,
@@ -34,22 +34,28 @@ slider,
   width: 0 !important;
 }
 
+/* some space to drag */
+#nav-bar {
+  padding: 0 20px;
+}
+
 .titlebar-spacer[type="pre-tabs"] {
   border-right: none !important;
 }
 
-.tabbrowser-tab::after, .tabbrowser-tab::before {
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
   border: none !important;
 }
 
 /* back button */
-#back-button>.toolbarbutton-icon {
+#back-button > .toolbarbutton-icon {
   background-color: unset !important;
   background-image: none !important;
   border: none !important;
 }
 
-#forward-button>.toolbarbutton-icon {
+#forward-button > .toolbarbutton-icon {
   background-color: unset !important;
   background-image: none !important;
   border: none !important;
@@ -96,6 +102,12 @@ slider,
   margin-left: -2px !important;
   margin-right: 4px !important;
 }
+.tabbrowser-tab[busy="true"] .tab-icon-image {
+  display: none !important;
+}
+/* .tab-icon-image {
+  display: block !important;
+} */
 
 /* invert status panel */
 #statuspanel-label {
@@ -104,6 +116,13 @@ slider,
   font-size: 12px !important;
   font-weight: 500 !important;
 }
+
+/* megabar blur */
+/* .urlbarView.megabar {
+ background-image: url(./noise-512x512.png) !important;
+ background-color: #2A2A2AC0 !important;
+ backdrop-filter: blur(32px) !important;
+} */
 
 /* remove maximum/minimum width restriction of sidebar */
 #sidebar {
@@ -142,7 +161,7 @@ Explanation of what each rule affects:
 - #titlebar should be affects the tabs bar and the menu bar (where file/tools menus are) */
 
 #nav-bar {
-  -moz-box-ordinal-group: 1 !important
+  -moz-box-ordinal-group: 1 !important;
 }
 
 #PersonalToolbar {
@@ -150,5 +169,10 @@ Explanation of what each rule affects:
 }
 
 #titlebar {
-  -moz-box-ordinal-group: 3 !important
+  -moz-box-ordinal-group: 3 !important;
 }
+
+/* full width tabs */
+/* .tabbrowser-tab[fadein] {
+  max-width: 100vw !important
+} */
