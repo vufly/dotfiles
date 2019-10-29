@@ -199,7 +199,7 @@ Explanation of what each rule affects:
 /* NAVBAR: Highlight URL based on security */
 #urlbar {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 #identity-box:after {
