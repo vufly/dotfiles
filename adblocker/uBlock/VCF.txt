@@ -34,3 +34,6 @@ beeng.net##.fullpage_ads
 
 ! 10/28/2019 https://forums.voz.vn
 forums.voz.vn##.sponsor
+
+! 10/30/2019 https://beeng.net
+beeng.net##.displaya-top
