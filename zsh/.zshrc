@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="colorls"
 alias lc="colorls -lA --sd"
+# alias vim='nvim'
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
@@ -116,3 +117,5 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 #source $(dirname $(gem which colorls))/tab_complete.sh
 
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
