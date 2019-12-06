@@ -34,3 +34,6 @@ forums.voz.vn##.sponsor
 
 ! 10/30/2019 https://beeng.net
 beeng.net##.displaya-top
+
+! 12/6/2019 https://thiendia.com
+thiendia.com##.xbWelcomeBar
