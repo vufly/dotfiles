@@ -115,6 +115,7 @@ export NVM_DIR="$HOME/.nvm"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
+export PATH="$PATH:/$HOME/Library/Python/3.7/bin"
 #source $(dirname $(gem which colorls))/tab_complete.sh
 
 
