@@ -37,3 +37,10 @@ beeng.net##.displaya-top
 
 ! 12/6/2019 https://thiendia.cc
 thiendia.cc##.xbWelcomeBar
+
+! 1/14/2020 https://thiendia.cc
+thiendia.cc##.my_responsive_ads
+thiendia.cc##.my_nonresponsive_ads
+thiendia.cc##[class="section"]
+thiendia.cc##footer .pageWidth
+thiendia.cc##center
