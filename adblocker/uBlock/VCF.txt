@@ -43,3 +43,6 @@ thiendia.cc##.my_responsive_ads
 thiendia.cc##.my_nonresponsive_ads
 thiendia.cc##footer .pageWidth
 thiendia.cc##center
+
+! 2/6/2020 https://thiendia.cc
+thiendia.cc###adBottom
