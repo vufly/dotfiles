@@ -35,14 +35,14 @@ forums.voz.vn##.sponsor
 ! 10/30/2019 https://beeng.net
 beeng.net##.displaya-top
 
-! 12/6/2019 https://thiendia.cc
-thiendia.cc##.xbWelcomeBar
+! 12/6/2019 https://thiendia.me
+thiendia.me##.xbWelcomeBar
 
-! 1/14/2020 https://thiendia.cc
-thiendia.cc##.my_responsive_ads
-thiendia.cc##.my_nonresponsive_ads
-thiendia.cc##footer .pageWidth
-thiendia.cc##center
+! 1/14/2020 https://thiendia.me
+thiendia.me##.my_responsive_ads
+thiendia.me##.my_nonresponsive_ads
+thiendia.me##footer .pageWidth
+thiendia.me##center
 
-! 2/6/2020 https://thiendia.cc
-thiendia.cc###adBottom
+! 2/6/2020 https://thiendia.me
+thiendia.me###adBottom
