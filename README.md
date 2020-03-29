@@ -7,3 +7,7 @@ I'm using uBlock origin on my browser. It support filtering content with ABP syn
 
 ## Firefox custom CSS
 Firefox customization. Using userChrome.css to set/override rules.
+
+## Zsh
+
+## Karabiner Element

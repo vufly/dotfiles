@@ -3,16 +3,13 @@ call plug#begin()
 
 """ NERDtree
 Plug 'scrooloose/nerdtree'
-Plug 'morhetz/gruvbox'
-Plug 'altercation/vim-colors-solarized'
-Plug 'artanikin/vim-synthwave84'
-Plug 'ayu-theme/ayu-vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'sainnhe/gruvbox-material'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'sheerun/vim-polyglot'
-
-"Plug 'chemzqm/vim-jsx-improve'
+Plug 'itchyny/lightline.vim'
+Plug 'kaicataldo/material.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'wakatime/vim-wakatime'
 
 call plug#end()
 
@@ -34,24 +31,25 @@ set tabstop=2
 set softtabstop=0
 set shiftwidth=2
 
+set number
+
+
 """ Plugin setting
 syntax enable
 set background=dark
 set termguicolors
-"highlight Normal ctermbg=None"
-"colorscheme gruvbox
-colorscheme gruvbox-material
-let ayucolor="mirage"
-"colorscheme ayu
-let g:nord_cursor_line_number_background = 1
-let g:nord_italic = 1
-let g:nord_italic_comments = 1
-let g:nord_underline = 1
 
-"colorscheme nord
-let g:airline_theme='nord'
-set guifont=Dank\ Mono:h14
+let g:material_theme_style = 'palenight'
+let g:material_terminal_italics = 1
 
-highlight Comment cterm=italic gui=italic
-"highlight jsThis cterm=italic gui=italic
-"highlight jsxAttrib cterm=italic gui=italic ctermbg=NONE ctermfg=NONE
+augroup MyColors
+	autocmd!
+	"autocmd ColorScheme * highlight jsExport gui=italic cterm=italic
+	autocmd ColorScheme * highlight jsExportDefault gui=italic cterm=italic guifg=#89ddff
+	autocmd ColorScheme * highlight LineNr guifg=#cleared
+augroup END
+colorscheme material
+
+let g:airline_theme = 'material_vim'
+let g:lightline = { 'colorscheme': 'material_vim' }
+

@@ -106,6 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="colorls"
 alias lc="colorls -lA --sd"
+alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
 # alias vim='nvim'
 
 export NVM_DIR="$HOME/.nvm"
@@ -117,6 +118,9 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="$PATH:/$HOME/Library/Python/3.7/bin"
 #source $(dirname $(gem which colorls))/tab_complete.sh
+
+
+export PATH="/usr/local/sbin:$PATH"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
