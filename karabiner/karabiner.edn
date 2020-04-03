@@ -29,7 +29,7 @@
       :alone   200    ;; to_if_alone_timeout_milliseconds (def: 1000)
                       ;; hold for 995s and single tap registered; hold for 1005s and seen as modifier
       :held    1000   ;; to_if_held_down_threshold_milliseconds (def: 500)
-                                ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
+                      ;; key is fired twice when 500 ms is elapsed (otherwise seen as a hold command)
   }
 } ;; profiles
 
@@ -136,20 +136,20 @@
     }
 
     {
-      :des "[Space Mode] Space+u to home, Space+i to end"
+      :des "[Space Mode] Space+u to page_down, Space+i to page_up"
       :rules [
         :space-mode
-          [:##u :home]
-          [:##i :end]
+          [:##u :page_down]
+          [:##i :page_up]
       ]
     }
 
     {
-      :des "[Space Mode] Space+y to page_up, Space+o to page_down"
+      :des "[Space Mode] Space+y to home, Space+o to end"
       :rules [
         :space-mode
-          [:##y :page_up]
-          [:##o :page_down]
+          [:##y :home]
+          [:##o :end]
       ]
     }
 
@@ -190,6 +190,7 @@
     {:des "[Launch Mode] -> f (Open Firefox)" :rules [:launch-mode [:##f [:km "open: Firefox"]]]}
     {:des "[Launch Mode] -> g (Open Fork)" :rules [:launch-mode [:##g [:km "open: Fork"]]]}
     {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:km "open: Finder"]]]}
+    {:des "[Launch Mode] -> j (Open Kitty)" :rules [:launch-mode [:##j [:km "open: Kitty"]]]}
     {:des "[Launch Mode] -> k (Open Keyboard Maestro)" :rules [:launch-mode [:##k [:km "open: Keyboard Maestro"]]]}
     {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:km "open: Spark"]]]}
     {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:km "open: Skype"]]]}
