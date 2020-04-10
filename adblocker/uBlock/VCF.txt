@@ -49,3 +49,6 @@ thiendia.me###adBottom
 
 ! 3/23/2020 https://manhwa18.com
 ||axwxrnk5ydzy.com
+
+! 4/10/2020 https://thiendia.me
+||thiendia.me/popup.js
