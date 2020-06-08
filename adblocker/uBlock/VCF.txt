@@ -35,20 +35,20 @@ forums.voz.vn##.sponsor
 ! 10/30/2019 https://beeng.net
 beeng.net##.displaya-top
 
-! 12/6/2019 https://thiendia.me
-thiendia.me##.xbWelcomeBar
+! 12/6/2019 https://thienvadia.com
+thienvadia.com##.xbWelcomeBar
 
-! 1/14/2020 https://thiendia.me
-thiendia.me##.my_responsive_ads
-thiendia.me##.my_nonresponsive_ads
-thiendia.me##footer .pageWidth
-thiendia.me##center
+! 1/14/2020 https://thienvadia.com
+thienvadia.com##.my_responsive_ads
+thienvadia.com##.my_nonresponsive_ads
+thienvadia.com##footer .pageWidth
+thienvadia.com##center
 
-! 2/6/2020 https://thiendia.me
-thiendia.me###adBottom
+! 2/6/2020 https://thienvadia.com
+thienvadia.com###adBottom
 
 ! 3/23/2020 https://manhwa18.com
 ||axwxrnk5ydzy.com
 
-! 4/10/2020 https://thiendia.me
-||thiendia.me/popup.js
+! 4/10/2020 https://thienvadia.com
+||thienvadia.com/popup.js

@@ -10,6 +10,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 Plug 'sheerun/vim-polyglot'
 Plug 'luochen1990/rainbow'
 "Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'nathanaelkane/vim-indent-guides'
 
@@ -19,20 +20,30 @@ Plug 'taohexxx/lightline-buffer'
 
 """ Colorschemes
 Plug 'kaicataldo/material.vim'
+Plug 'ayu-theme/ayu-vim'
+Plug 'challenger-deep-theme/vim'
+Plug 'sainnhe/sonokai'
+Plug 'sainnhe/forest-night'
+Plug 'rhysd/vim-color-spring-night'
 "Plug 'drewtempelmeyer/palenight.vim'
+"Plug 'kjssad/quantum.vim'
 
 """ Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+"Plug 'tpope/vim-sleuth'
+Plug 'conormcd/matchindent.vim'
 
 """ Productivity
 Plug 'wakatime/vim-wakatime'
 
 """ Ultility
+Plug 'djoshea/vim-autoread'
 Plug 'airblade/vim-rooter'
-"Plug 'tpope/vim-surround'
 Plug 'machakann/vim-sandwich'
+Plug 'psliwka/vim-smoothie'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
+Plug 'liuchengxu/vista.vim'
 
 """ Finding things
 Plug 'google/vim-searchindex'
@@ -40,6 +51,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'vufly/nerdtree-ripgrep-plugin'
+Plug 'liuchengxu/vim-clap'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' } " Build the extra binary if cargo exists on your system.
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' } " The bang version will try to download the prebuilt binary if cargo does not exist.
+Plug 'coreyja/fzf.devicon.vim'
 
 """ Git
 Plug 'tpope/vim-fugitive'
@@ -51,31 +66,52 @@ call plug#end()
 augroup MyColors
 	autocmd!
 	"autocmd ColorScheme * highlight jsExport gui=italic cterm=italic
-	autocmd ColorScheme * highlight jsExportDefault gui=italic cterm=italic guifg=#89ddff
-	autocmd ColorScheme * highlight LineNr guifg=#cleared
-	autocmd ColorScheme * highlight jsThis gui=italic cterm=italic
+  autocmd ColorScheme material highlight SignColumn ctermfg=14 ctermbg=242 guifg=#a6accd guibg=#3d435d
+  autocmd ColorScheme material highlight jsExportDefault gui=italic cterm=italic guifg=#89ddff
+  autocmd ColorScheme material highlight LineNr guifg=cleared guibg=#3d435c
+  autocmd ColorScheme material highlight CursorLineNr gui=bold ctermfg=11 guifg=#676e95 guibg=#1f212e
+  autocmd ColorScheme material highlight jsThis gui=italic cterm=italic
+  "autocmd ColorScheme sonokai highlight link htmlTagName markdownH1
 augroup END
 
-let g:material_theme_style = 'palenight'
-let g:material_terminal_italics = 1
+"let g:material_theme_style = 'palenight'
+"let g:material_terminal_italics = 1
+"colorscheme material
 
-colorscheme material
+"let ayucolor="light"  " for light version of theme
+"let ayucolor="mirage" " for mirage version of theme
+"let ayucolor="dark"   " for dark version of theme
+"colorscheme ayu
+
+let g:sonokai_style = 'atlantis'
+let g:sonokai_enable_italic = 1
+autocmd VimEnter * colorscheme sonokai  | highlight link htmlTagName markdownH1
+                                      \ | highlight link htmlTagN markdownH1
+                                      \ | highlight link htmlSpecialTagName markdownH1
+                                      \ | highlight link xmlTagName markdownH1
+                                      \ | highlight link jsxTagName markdownH1
+                                      \ | highlight link htmlArg BlueItalic
+                                      \ | highlight link jsxAttrib BlueItalic
+
+"let g:spring_night_high_contrast = 1
+"colorscheme spring-night
+"let g:forest_night_enable_italic = 1
+"colorscheme forest-night
 
 set showtabline=2
-let g:airline_theme = 'material'
+"let g:airline_theme = 'ayu_mirage'
 "let g:lightline = { 'colorscheme': 'material_vim' }
 let g:lightline = {
-  \ 'colorscheme': 'ayu_mirage',
+  \ 'colorscheme': 'sonokai',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'fugitive', 'cocstatus', 'readonly', 'filename', 'modified' ] ],
+  \             [ 'fugitive', 'readonly', 'filename', 'cocstatus', 'modified' ] ],
   \ 'right': [ [ 'lineinfo' ],
   \            [ 'percent' ],
   \            [ 'fileencoding' ] ]
   \ },
   \ 'tabline': {
   \   'left': [ [ 'bufferinfo' ],
-  \             [ 'separator' ],
   \             [ 'bufferbefore', 'buffercurrent', 'bufferafter' ], ],
   \   'right': [ [ 'close' ], ],
   \ },
@@ -90,14 +126,16 @@ let g:lightline = {
   \   'bufferafter': 'raw',
   \ },
   \ 'component_function': {
-	\   'cocstatus': 'coc#status',
+	\   'cocstatus': 'StatusDiagnostic',
   \   'bufferinfo': 'lightline#buffer#bufferinfo',
   \   'fugitive': 'LightlineFugitive',
   \   'readonly': 'LightlineReadonly',
   \ },
   \ 'component': {
   \   'separator': '',
-  \ }
+  \ },
+  \ 'separator': { 'left': '', 'right': '' },
+  \ 'subseparator': { 'left': '', 'right': '' }
 \ }
 function! LightlineReadonly()
   return &readonly ? '' : ''
@@ -116,11 +154,10 @@ let g:lightline_buffer_git_icon = ' '
 let g:lightline_buffer_ellipsis_icon = '..'
 let g:lightline_buffer_expand_left_icon = '◀ '
 let g:lightline_buffer_expand_right_icon = ' ▶'
-let g:lightline_buffer_active_buffer_left_icon = ''
-let g:lightline_buffer_active_buffer_right_icon = ''
-let g:lightline_buffer_separator_icon = '  '
+let g:lightline_buffer_active_buffer_left_icon = ' '
+let g:lightline_buffer_active_buffer_right_icon = ' '
+let g:lightline_buffer_separator_icon = ''
 
-let g:lightline_buffer_enable_devicons = 1
 " enable devicons, only support utf-8
 " require <https://github.com/ryanoasis/vim-devicons>
 let g:lightline_buffer_enable_devicons = 1
@@ -183,15 +220,16 @@ set cursorline
 set list
 set listchars=
 "set listchars+=tab:▓░
-set listchars+=tab:░\ 
+"set listchars+=tab:░\ 
+set listchars+=tab:˲\ 
+"set listchars+=eol:¬
 set listchars+=trail:·
 set listchars+=extends:»
 set listchars+=precedes:«
-set listchars+=nbsp:⣿
+set listchars+=nbsp:•
 
 set nowrap
 set title
-"set titlestring+=%{substitute(getcwd(),\ $HOME,\ '~',\ '')}
 
 " Always split new windows right
 set splitright
@@ -212,6 +250,8 @@ autocmd FileType help wincmd L
 "make < > shifts keep selection
 vnoremap < <gv
 vnoremap > >gv
+
+command! HiCheck exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')
 
 """ Plugin setting
 syntax enable
@@ -242,8 +282,13 @@ let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 let g:startify_session_persistence = 1
+let g:DevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsUnicodeDecorateFolderNodesDefaultSymbol = ' '
+let g:DevIconsDefaultFolderOpenSymbol = ' '
 
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+"let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+let g:rbpt_max = 16
+let g:rbpt_loadcmd_toggle = 1
 let g:indentLine_leadingSpaceEnabled = 0
 let g:indentLine_leadingSpaceChar = '·'
 let g:indentLine_enabled = 1
@@ -265,12 +310,12 @@ let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/
 "let $FZF_DEFAULT_OPTS=' --color=dark --color=fg:15,bg:-1,hl:1,fg+:#ffffff,bg+:0,hl+:1 --color=info:0,prompt:0,pointer:12,marker:4,spinner:11,header:-1 --layout=reverse  --margin=1,4'
 let $FZF_DEFAULT_OPTS=' --layout=reverse  --margin=1,2'
 let g:fzf_layout = { 'window': 'call FloatingFZF()' }
-
+let g:fzf_preview_window = 'down:50%'
 function! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
-  let height = float2nr(20)
+  let height = float2nr(40)
   let width = float2nr(200)
   let horizontal = float2nr((&columns - width) / 2)
   let vertical = 1
@@ -314,6 +359,7 @@ let g:startify_lists = [
 \ { 'type': 'commands',  'header': ['   Commands']       },
 \ ]
 
+let g:clap_layout = { 'relative': 'editor' }
 
 """ Coc settings
 " TextEdit might fail if hidden is not set.
@@ -422,8 +468,8 @@ omap af <Plug>(coc-funcobj-a)
 " Use <TAB> for selections ranges.
 " NOTE: Requires 'textDocument/selectionRange' support from the language server.
 " coc-tsserver, coc-python are the examples of servers that support it.
-nmap <silent> <TAB> <Plug>(coc-range-select)
-xmap <silent> <TAB> <Plug>(coc-range-select)
+"nmap <silent> <TAB> <Plug>(coc-range-select)
+"xmap <silent> <TAB> <Plug>(coc-range-select)
 
 " Add `:Format` command to format current buffer.
 command! -nargs=0 Format :call CocAction('format')
@@ -437,7 +483,20 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " Add (Neo)Vim's native statusline support.
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+"set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+function! StatusDiagnostic() abort
+  let info = get(b:, 'coc_diagnostic_info', {})
+  if empty(info) | return '' | endif
+  let msgs = []
+  if get(info, 'error', 0)
+    call add(msgs, ' ' . info['error'])
+  endif
+  if get(info, 'warning', 0)
+    call add(msgs, ' ' . info['warning'])
+  endif
+  return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
+endfunction
+
 
 " Mappings using CoCList:
 " Show all diagnostics.
@@ -456,4 +515,6 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+nmap <space>e :CocCommand explorer<CR>
 

@@ -106,7 +106,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias ls="colorls"
 alias lc="colorls -lA --sd"
-alias brewup="brew update; brew upgrade; brew cleanup; brew doctor"
+alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew cask outdated; brew cask upgrade; brew cask doctor; rm -rf $(brew --cache)"
 # alias vim='nvim'
 
 export NVM_DIR="$HOME/.nvm"
@@ -121,6 +121,8 @@ export PATH="$PATH:/$HOME/Library/Python/3.7/bin"
 
 
 export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.cargo/bin:$PATH"
 
+export QMK_HOME="~/Tweaking/qmk_firmware"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

@@ -43,7 +43,9 @@
   :apl-usb-int [{:vendor_id 1452, :product_id 635 }]  ;; Apple Internal & Magic Keyboard (USB)
   :apl-bt [{:vendor_id 1452, :product_id 615}] ;; Apple Magic Keyboard (Bluetooth)
   :ap2 [{:vendor_id 1241, :product_id 41618}] ;; Anne Pro 2 (mechanical)
-  :lingyi [{:vendor_id 9610, :product_id 4102}]
+  :lingyi [{:vendor_id 9610, :product_id 4102}] ;; Lingyi Black Widow (mechanical)
+  :nj68-bt [{:vendor_id 1452, :product_id 556}] ;; Keydous NJ68 (Bluetooth)
+  :nj68-w [{:vendor_id 1155, :product_id 16421}] ;; Keydous NJ68 (wire)
 } ;; devices
 
 ;; layers are basically "hyper" keys
@@ -195,6 +197,7 @@
     {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:km "open: Spark"]]]}
     {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:km "open: Skype"]]]}
     {:des "[Launch Mode] -> i (Open iTerm)" :rules [:launch-mode [:##i [:km "open: iTerm"]]]}
+    {:des "[Launch Mode] -> z (Open Zoom)" :rules [:launch-mode [:##z [:km "open: Zoom"]]]}
     {:des "[Launch Mode] -> c (Open Chrome)" :rules [:launch-mode [:##c [:km "open: Chrome"]]]}
     {:des "[Launch Mode] -> v (Open VSCode)" :rules [:launch-mode [:##v [:km "open: VSCode"]]]}
     {:des "[Launch Mode] -> m (Open Spotify)" :rules [:launch-mode [:##m [:km "open: Spotify"]]]}
