@@ -46,6 +46,7 @@
   :lingyi [{:vendor_id 9610, :product_id 4102}] ;; Lingyi Black Widow (mechanical)
   :nj68-bt [{:vendor_id 1452, :product_id 556}] ;; Keydous NJ68 (Bluetooth)
   :nj68-w [{:vendor_id 1155, :product_id 16421}] ;; Keydous NJ68 (wire)
+  :qmk [{:vendor_id 65261 :product_id 24672}];; Route 1, QMK (USB)
 } ;; devices
 
 ;; layers are basically "hyper" keys
@@ -115,7 +116,7 @@
 
     {
       :des "[Space Mode] OVERALL TRIGGER"
-      :rules [[:##spacebar {:set ["space-mode",1]} nil {:alone :spacebar :afterup {:set ["space-mode",0]}}]]
+      :rules [:!qmk [:##spacebar {:set ["space-mode",1]} nil {:alone :spacebar :afterup {:set ["space-mode",0]}}]]
     }
 
     {
