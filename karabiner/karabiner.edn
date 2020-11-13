@@ -189,7 +189,7 @@
     }
     {:des "[Launch Mode] -> a (Open Activity Monitor)" :rules [:launch-mode [:##a [:km "open: Activity Monitor"]]]}
     {:des "[Launch Mode] -> s (Open Slack)" :rules [:launch-mode [:##s [:km "open: Slack"]]]}
-    {:des "[Launch Mode] -> d (Open MySQLWorkbench)" :rules [:launch-mode [:##d [:km "open: MySQLWorkbench"]]]}
+    {:des "[Launch Mode] -> d (Open Database)" :rules [:launch-mode [:##d [:km "open: Database"]]]}
     {:des "[Launch Mode] -> f (Open Firefox)" :rules [:launch-mode [:##f [:km "open: Firefox"]]]}
     {:des "[Launch Mode] -> g (Open Fork)" :rules [:launch-mode [:##g [:km "open: Fork"]]]}
     {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:km "open: Finder"]]]}

@@ -1,5 +1,5 @@
 """ Vim-Plug
-call plug#begin()
+:call plug#begin('~/.config/nvim')
 
 """ NERDtree
 Plug 'scrooloose/nerdtree'
@@ -13,20 +13,26 @@ Plug 'luochen1990/rainbow'
 Plug 'kien/rainbow_parentheses.vim'
 Plug 'Yggdroot/indentLine'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'norcalli/nvim-colorizer.lua'
+"Plug 'leafgarland/typescript-vim'
 
 """ Status line
 Plug 'itchyny/lightline.vim'
 Plug 'taohexxx/lightline-buffer'
 
 """ Colorschemes
-Plug 'kaicataldo/material.vim'
+Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim'
 Plug 'sainnhe/sonokai'
 Plug 'sainnhe/forest-night'
 Plug 'rhysd/vim-color-spring-night'
-"Plug 'drewtempelmeyer/palenight.vim'
-"Plug 'kjssad/quantum.vim'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'franbach/miramare'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/edge'
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'vufly/dracula-vim', { 'as': 'dracula' }
 
 """ Autocomplete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -43,7 +49,7 @@ Plug 'machakann/vim-sandwich'
 Plug 'psliwka/vim-smoothie'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
-Plug 'liuchengxu/vista.vim'
+"Plug 'liuchengxu/vista.vim'
 
 """ Finding things
 Plug 'google/vim-searchindex'
@@ -62,17 +68,22 @@ Plug 'tpope/vim-fugitive'
 call plug#end()
 
 
-""" Modify colorscheme
+"" Modify colorscheme
 augroup MyColors
-	autocmd!
-	"autocmd ColorScheme * highlight jsExport gui=italic cterm=italic
-  autocmd ColorScheme material highlight SignColumn ctermfg=14 ctermbg=242 guifg=#a6accd guibg=#3d435d
-  autocmd ColorScheme material highlight jsExportDefault gui=italic cterm=italic guifg=#89ddff
-  autocmd ColorScheme material highlight LineNr guifg=cleared guibg=#3d435c
-  autocmd ColorScheme material highlight CursorLineNr gui=bold ctermfg=11 guifg=#676e95 guibg=#1f212e
-  autocmd ColorScheme material highlight jsThis gui=italic cterm=italic
+  autocmd!
+  "autocmd ColorScheme * highlight jsExport gui=italic cterm=italic
+  "autocmd ColorScheme material highlight SignColumn ctermfg=14 ctermbg=242 guifg=#a6accd guibg=#3d435d
+  "autocmd ColorScheme material highlight jsExportDefault gui=italic cterm=italic guifg=#89ddff
+  "autocmd ColorScheme material highlight LineNr guifg=cleared guibg=#3d435c
+  "autocmd ColorScheme material highlight CursorLineNr gui=bold ctermfg=11 guifg=#676e95 guibg=#1f212e
+  "autocmd ColorScheme material highlight jsThis gui=italic cterm=italic
   "autocmd ColorScheme sonokai highlight link htmlTagName markdownH1
+  "autocmd ColorScheme gruvbox-material highlight link htmlArg YellowBold
+  "autocmd ColorScheme gruvbox-material highlight link jsxAttrib YellowBold
+  "autocmd ColorScheme gruvbox-material highlight link typescriptGlobal PurpleBold
+  "autocmd ColorScheme gruvbox-material highlight link typescriptIdentifier PurpleItalic
 augroup END
+"autocmd VimEnter * highlight link typescriptProp AquaBold
 
 "let g:material_theme_style = 'palenight'
 "let g:material_terminal_italics = 1
@@ -83,26 +94,54 @@ augroup END
 "let ayucolor="dark"   " for dark version of theme
 "colorscheme ayu
 
-let g:sonokai_style = 'atlantis'
-let g:sonokai_enable_italic = 1
-autocmd VimEnter * colorscheme sonokai  | highlight link htmlTagName markdownH1
-                                      \ | highlight link htmlTagN markdownH1
-                                      \ | highlight link htmlSpecialTagName markdownH1
-                                      \ | highlight link xmlTagName markdownH1
-                                      \ | highlight link jsxTagName markdownH1
-                                      \ | highlight link htmlArg BlueItalic
-                                      \ | highlight link jsxAttrib BlueItalic
+"let g:sonokai_style = 'atlantis'
+"let g:sonokai_enable_italic = 1
+"autocmd VimEnter * colorscheme sonokai  | highlight link htmlTagName markdownH1
+                                      "\ | highlight link htmlTagN markdownH1
+                                      "\ | highlight link htmlSpecialTagName markdownH1
+                                      "\ | highlight link xmlTagName markdownH1
+                                      "\ | highlight link jsxTagName markdownH1
+                                      "\ | highlight link htmlArg BlueItalic
+                                      "\ | highlight link jsxAttrib BlueItalic"
+autocmd VimEnter * colorscheme dracula  | highlight link htmlTagName DraculaPurpleBold
+                                      \ | highlight link htmlTagN DraculaPurpleBold
+                                      \ | highlight link htmlSpecialTagName DraculaPurpleBold
+                                      \ | highlight link xmlTagName DraculaPurpleBold
+                                      \ | highlight link jsxTagName DraculaPurpleBold
+                                      "\ | highlight link typescriptProp DraculaCyan
+                                      \ | highlight link typescriptMember DraculaGreen
+                                      "\ | highlight link htmlArg BlueItalic
+                                      "\ | highlight link jsxAttrib BlueItalic
 
 "let g:spring_night_high_contrast = 1
 "colorscheme spring-night
 "let g:forest_night_enable_italic = 1
 "colorscheme forest-night
 
+"let g:gruvbox_material_enable_italic = 1
+"colorscheme gruvbox-material
+
+"colorscheme purify
+"colorscheme challenger_deep
+colorscheme dracula
+
+"let g:miramare_enable_italic = 1
+"colorscheme miramare
+"autocmd VimEnter * colorscheme spring-night
+
+"let g:gruvbox_material_enable_bold = 1
+"let g:gruvbox_material_enable_italic = 1
+"let g:gruvbox_material_enable_italic = 1
+"let g:gruvbox_material_enable_italic = 1
+"colorscheme gruvbox-material
+
+
+
 set showtabline=2
 "let g:airline_theme = 'ayu_mirage'
 "let g:lightline = { 'colorscheme': 'material_vim' }
 let g:lightline = {
-  \ 'colorscheme': 'sonokai',
+  \ 'colorscheme': 'dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'fugitive', 'readonly', 'filename', 'cocstatus', 'modified' ] ],
@@ -186,6 +225,9 @@ let g:lightline_buffer_minfextlen = 3
 " reserve length for other component (e.g. info, close)
 let g:lightline_buffer_reservelen = 20
 
+autocmd BufEnter *.{js,jsx,ts,tsx,vue} :syntax sync fromstart
+autocmd BufLeave *.{js,jsx,ts,tsx,vue} :syntax sync clear
+
 """ Vim setting
 let mapleader = "\<Space>"
 map <leader>h :w\|:noh<cr>
@@ -256,7 +298,16 @@ command! HiCheck exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')
 """ Plugin setting
 syntax enable
 set background=dark
-set termguicolors
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  "set t_ZH=^[[3m
+  "set t_ZR=^[[23m
+  set termguicolors
+endif
+
+lua require'colorizer'.setup()
+
 map <leader><C-h> :exe 'hi '.synIDattr(synstack(line('.'), col('.'))[-1], 'name')<CR>
 map <C-b> :NERDTreeToggle<CR>
 map <leader>F :call NERDTreeRipGrepDirectory()<CR>
@@ -277,6 +328,7 @@ if has('title') && (has('gui_running') || &title)
     set titlestring+=\ -\ %{matchstr(getcwd(),'[^\\\/]*$')}  " working directory
 endif
 let NERDTreeHijackNetrw = 0
+let NERDTreeShowHidden=1
 let g:NERDTreeFileExtensionHighlightFullName = 1
 let g:NERDTreeExactMatchHighlightFullName = 1
 let g:NERDTreePatternMatchHighlightFullName = 1
@@ -291,13 +343,17 @@ let g:rbpt_max = 16
 let g:rbpt_loadcmd_toggle = 1
 let g:indentLine_leadingSpaceEnabled = 0
 let g:indentLine_leadingSpaceChar = '·'
-let g:indentLine_enabled = 1
+let g:indentLine_enabled = 0
 let g:indentLine_setColors = 0
 let g:indentLine_char = ''
 let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_auto_colors = 0
-hi IndentGuidesOdd  guibg=#303448 ctermbg=59
-hi IndentGuidesEven guibg=#373c52 ctermbg=60
+"hi IndentGuidesOdd  guibg=#303448 ctermbg=59
+"hi IndentGuidesEven guibg=#373c52 ctermbg=60
+
+"tmux italic
+"set t_ZH=^[[3m
+"set t_ZR=^[[23m
 
 set rtp+=/usr/local/opt/fzf
 "map <C-p> :FZF<CR>
@@ -496,6 +552,14 @@ function! StatusDiagnostic() abort
   endif
   return join(msgs, ' ') . ' ' . get(g:, 'coc_status', '')
 endfunction
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/prettier')
+  let g:coc_global_extensions += ['coc-prettier']
+endif
+
+if isdirectory('./node_modules') && isdirectory('./node_modules/eslint')
+  let g:coc_global_extensions += ['coc-eslint']
+endif
 
 
 " Mappings using CoCList:
