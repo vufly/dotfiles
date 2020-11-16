@@ -115,6 +115,9 @@ source ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting/zsh-syntax-highlighti
 export N_PREFIX="$HOME/n"
 export PATH="$N_PREFIX/bin:$PATH"
 export QMK_HOME="~/Tweaking/qmk_firmware"
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -128,7 +131,7 @@ unalias grv
 
 alias ls='colorls --sd'
 alias ll='colorls -lA --sd'
-alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew cask outdated; brew cask upgrade; brew cask doctor; rm -rf $(brew --cache)"
+alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew outdated --cask; brew cask upgrade; brew doctor --verbose; rm -rf $(brew --cache)"
 
 #alias tmux="env TERM=screen-256color tmux"
 alias t="tmux"
