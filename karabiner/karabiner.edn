@@ -36,6 +36,7 @@
 :templates {
   :km "osascript -e 'tell application \"Keyboard Maestro Engine\" to do script \"%s\"'"
   :open "open \"%s\""
+  :hs "open -g hammerspoon://%s"
 } ;; templates
 
 ;; Define different kinds of keyboards
@@ -187,21 +188,39 @@
           {:set ["launch-mode" 1]}
       ]]
     }
-    {:des "[Launch Mode] -> a (Open Activity Monitor)" :rules [:launch-mode [:##a [:km "open: Activity Monitor"]]]}
-    {:des "[Launch Mode] -> s (Open Slack)" :rules [:launch-mode [:##s [:km "open: Slack"]]]}
-    {:des "[Launch Mode] -> d (Open Database)" :rules [:launch-mode [:##d [:km "open: Database"]]]}
-    {:des "[Launch Mode] -> f (Open Firefox)" :rules [:launch-mode [:##f [:km "open: Firefox"]]]}
-    {:des "[Launch Mode] -> g (Open Fork)" :rules [:launch-mode [:##g [:km "open: Fork"]]]}
-    {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:km "open: Finder"]]]}
-    {:des "[Launch Mode] -> j (Open Kitty)" :rules [:launch-mode [:##j [:km "open: Kitty"]]]}
-    {:des "[Launch Mode] -> k (Open Keyboard Maestro)" :rules [:launch-mode [:##k [:km "open: Keyboard Maestro"]]]}
-    {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:km "open: Spark"]]]}
-    {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:km "open: Skype"]]]}
-    {:des "[Launch Mode] -> i (Open iTerm)" :rules [:launch-mode [:##i [:km "open: iTerm"]]]}
-    {:des "[Launch Mode] -> z (Open Zoom)" :rules [:launch-mode [:##z [:km "open: Zoom"]]]}
-    {:des "[Launch Mode] -> c (Open Chrome)" :rules [:launch-mode [:##c [:km "open: Chrome"]]]}
-    {:des "[Launch Mode] -> v (Open VSCode)" :rules [:launch-mode [:##v [:km "open: VSCode"]]]}
-    {:des "[Launch Mode] -> m (Open Spotify)" :rules [:launch-mode [:##m [:km "open: Spotify"]]]}
+    ; {:des "[Launch Mode] -> a (Open Activity Monitor)" :rules [:launch-mode [:##a [:km "open: Activity Monitor"]]]}
+    ; {:des "[Launch Mode] -> s (Open Slack)" :rules [:launch-mode [:##s [:km "open: Slack"]]]}
+    ; {:des "[Launch Mode] -> d (Open Database)" :rules [:launch-mode [:##d [:km "open: Database"]]]}
+    ; {:des "[Launch Mode] -> f (Open Firefox)" :rules [:launch-mode [:##f [:km "open: Firefox"]]]}
+    ; {:des "[Launch Mode] -> g (Open Fork)" :rules [:launch-mode [:##g [:km "open: Fork"]]]}
+    ; {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:km "open: Finder"]]]}
+    ; {:des "[Launch Mode] -> j (Open Kitty)" :rules [:launch-mode [:##j [:km "open: Kitty"]]]}
+    ; {:des "[Launch Mode] -> k (Open Keyboard Maestro)" :rules [:launch-mode [:##k [:km "open: Keyboard Maestro"]]]}
+    ; {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:km "open: Spark"]]]}
+    ; {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:km "open: Skype"]]]}
+    ; {:des "[Launch Mode] -> t (Open Telegram)" :rules [:launch-mode [:##t [:km "open: Telegram"]]]}
+    ; {:des "[Launch Mode] -> i (Open iTerm)" :rules [:launch-mode [:##i [:km "open: iTerm"]]]}
+    ; {:des "[Launch Mode] -> z (Open Zoom)" :rules [:launch-mode [:##z [:km "open: Zoom"]]]}
+    ; {:des "[Launch Mode] -> c (Open Chrome)" :rules [:launch-mode [:##c [:km "open: Chrome"]]]}
+    ; {:des "[Launch Mode] -> v (Open VSCode)" :rules [:launch-mode [:##v [:km "open: VSCode"]]]}
+    ; {:des "[Launch Mode] -> m (Open Spotify)" :rules [:launch-mode [:##m [:km "open: Spotify"]]]}
+
+    {:des "[Launch Mode] -> a (Open Activity Monitor)" :rules [:launch-mode [:##a [:hs "openActivityMonitor"]]]}
+    {:des "[Launch Mode] -> s (Open Slack)" :rules [:launch-mode [:##s [:hs "openSlack"]]]}
+    {:des "[Launch Mode] -> d (Open Database)" :rules [:launch-mode [:##d [:hs "openDatabase"]]]}
+    {:des "[Launch Mode] -> f (Open Firefox)" :rules [:launch-mode [:##f [:hs "openFirefox"]]]}
+    {:des "[Launch Mode] -> g (Open Fork)" :rules [:launch-mode [:##g [:hs "openFork"]]]}
+    {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:hs "openFinder"]]]}
+    {:des "[Launch Mode] -> j (Open Kitty)" :rules [:launch-mode [:##j [:hs "openKitty"]]]}
+    ; {:des "[Launch Mode] -> k (Open Keyboard Maestro)" :rules [:launch-mode [:##k [:hs "openKeyboardMaestro"]]]}
+    {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:hs "openSpark"]]]}
+    {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:hs "openSkype"]]]}
+    {:des "[Launch Mode] -> t (Open Telegram)" :rules [:launch-mode [:##t [:hs "openTelegram"]]]}
+    {:des "[Launch Mode] -> i (Open iTerm)" :rules [:launch-mode [:##i [:hs "openiTerm"]]]}
+    {:des "[Launch Mode] -> z (Open Zoom)" :rules [:launch-mode [:##z [:hs "openZoom"]]]}
+    {:des "[Launch Mode] -> c (Open Chrome)" :rules [:launch-mode [:##c [:hs "openChrome"]]]}
+    {:des "[Launch Mode] -> v (Open VSCode)" :rules [:launch-mode [:##v [:hs "openVSCode"]]]}
+    {:des "[Launch Mode] -> m (Open Spotify)" :rules [:launch-mode [:##m [:hs "openSpotify"]]]}
 
 ] ;; main list
 

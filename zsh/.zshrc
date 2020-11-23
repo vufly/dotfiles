@@ -131,7 +131,7 @@ unalias grv
 
 alias ls='colorls --sd'
 alias ll='colorls -lA --sd'
-alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew outdated --cask; brew cask upgrade; brew doctor --verbose; rm -rf $(brew --cache)"
+alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew outdated --cask; brew upgrade --cask; brew doctor --verbose; rm -rf $(brew --cache)"
 
 #alias tmux="env TERM=screen-256color tmux"
 alias t="tmux"
