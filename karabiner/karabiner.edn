@@ -213,6 +213,7 @@
     {:des "[Launch Mode] -> h (Open Finder)" :rules [:launch-mode [:##h [:hs "openFinder"]]]}
     {:des "[Launch Mode] -> j (Open Kitty)" :rules [:launch-mode [:##j [:hs "openKitty"]]]}
     ; {:des "[Launch Mode] -> k (Open Keyboard Maestro)" :rules [:launch-mode [:##k [:hs "openKeyboardMaestro"]]]}
+    {:des "[Launch Mode] -> w (Open Messenger)" :rules [:launch-mode [:##w [:hs "openMessenger"]]]}
     {:des "[Launch Mode] -> e (Open Spark)" :rules [:launch-mode [:##e [:hs "openSpark"]]]}
     {:des "[Launch Mode] -> r (Open Skype)" :rules [:launch-mode [:##r [:hs "openSkype"]]]}
     {:des "[Launch Mode] -> t (Open Telegram)" :rules [:launch-mode [:##t [:hs "openTelegram"]]]}
@@ -220,6 +221,7 @@
     {:des "[Launch Mode] -> z (Open Zoom)" :rules [:launch-mode [:##z [:hs "openZoom"]]]}
     {:des "[Launch Mode] -> c (Open Chrome)" :rules [:launch-mode [:##c [:hs "openChrome"]]]}
     {:des "[Launch Mode] -> v (Open VSCode)" :rules [:launch-mode [:##v [:hs "openVSCode"]]]}
+    {:des "[Launch Mode] -> n (Open Notion)" :rules [:launch-mode [:##n [:hs "openNotion"]]]}
     {:des "[Launch Mode] -> m (Open Spotify)" :rules [:launch-mode [:##m [:hs "openSpotify"]]]}
 
 ] ;; main list

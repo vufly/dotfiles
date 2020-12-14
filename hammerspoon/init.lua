@@ -2,8 +2,6 @@ local log = hs.logger.new('hs','debug')
 
 -- open app
 function openApp(name)
-  local wf=hs.window.filter.new(false)
-  wf:setAppFilter(name, {visible=nil, currentSpace=nil})
   local app = hs.application.get(name)
 
   log.i('open App')
@@ -12,13 +10,16 @@ function openApp(name)
   if app then
     if app:isFrontmost() then
       log.i('app on top')
-      local appWindows = wf:getWindows()
+      -- local wf=hs.window.filter.new(false)
+      -- wf:setAppFilter(name, {visible=nil, currentSpace=nil})
+      -- local appWindows = wf:getWindows()
+      local appWindows = app:allWindows()
       if (#appWindows > 1) then
         appWindows[2]:focus() --If app on top then open the second most recent window of the app
       end
     else
       log.i('app not on top')
-      app:mainWindow():focus()
+      app:setFrontmost(true)
     end
   else
     log.i('app launch')
@@ -62,6 +63,10 @@ hs.urlevent.bind('openKitty', function(eventName, params)
   openApp('Kitty')
 end)
 
+hs.urlevent.bind('openMessenger', function(eventName, params)
+  openApp('Messenger')
+end)
+
 hs.urlevent.bind('openSpark', function(eventName, params)
   openApp('Spark')
 end)
@@ -88,6 +93,10 @@ end)
 
 hs.urlevent.bind('openVSCode', function(eventName, params)
   openApp('Code')
+end)
+
+hs.urlevent.bind('openNotion', function(eventName, params)
+  openApp('Notion')
 end)
 
 hs.urlevent.bind('openSpotify', function(eventName, params)
