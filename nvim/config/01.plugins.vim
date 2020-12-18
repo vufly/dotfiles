@@ -7,11 +7,16 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 """ Highlighting
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'alampros/vim-styled-jsx'
+" Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 """ Status line
-Plug 'itchyny/lightline.vim'
-Plug 'taohexxx/lightline-buffer'
+" Plug 'itchyny/lightline.vim'
+" Plug 'taohexxx/lightline-buffer'
+Plug 'kyazdani42/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
+Plug 'glepnir/galaxyline.nvim'
 
 """ Colorschemes
 Plug 'kaicataldo/material.vim', { 'branch': 'main' }
@@ -40,5 +45,11 @@ Plug 'preservim/nerdcommenter'
 
 """ Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+""" Nightly
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/playground'
+Plug 'kyazdani42/nvim-tree.lua'
+Plug 'glepnir/zephyr-nvim'
 
 call plug#end()
