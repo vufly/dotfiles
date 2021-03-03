@@ -26,6 +26,9 @@ function openApp(name)
     if (name == 'Code') then
       name = 'Visual Studio Code'
     end
+    if (name == 'Code - Insiders') then
+      name = 'Visual Studio Code - Insiders'
+    end
     if (name == 'Google Chrome') then
       name = 'Google Chrome Dev'
     end
@@ -92,7 +95,8 @@ hs.urlevent.bind('openChrome', function(eventName, params)
 end)
 
 hs.urlevent.bind('openVSCode', function(eventName, params)
-  openApp('Code')
+  -- openApp('Code')
+  openApp('Code - Insiders')
 end)
 
 hs.urlevent.bind('openNotion', function(eventName, params)

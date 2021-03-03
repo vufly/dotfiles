@@ -234,7 +234,7 @@ map <leader>h :w\|:noh<cr>
 filetype plugin on
 filetype plugin indent on
 
-autocmd BufEnter * :set scroll=10
+" autocmd BufEnter * :set scroll=10
 syntax on
 
 set encoding=UTF-8
@@ -313,13 +313,13 @@ map <C-b> :NERDTreeToggle<CR>
 map <leader>F :call NERDTreeRipGrepDirectory()<CR>
 autocmd StdinReadPre * let s:std_in=1
 "autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
-    autocmd VimEnter *
-                \   if !argc()
-                \ |   Startify
-                \ |   NERDTree
-                \ |   wincmd w
-                \ | endif
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+    " autocmd VimEnter *
+    "             \   if !argc()
+    "             \ |   Startify
+    "             \ |   NERDTree
+    "             \ |   wincmd w
+    "             \ | endif
+" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "autocmd bufenter * let $titlestring = getcwd()
 " Nice window title
 if has('title') && (has('gui_running') || &title)

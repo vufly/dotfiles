@@ -143,6 +143,9 @@ alias 256="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403b
 
 alias gitzip="git archive HEAD -o ${PWD##*/}.zip"
 
+#VSCode Insider
+alias codi="code-insiders"
+
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
 
@@ -150,4 +153,8 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
+
+# eval "$(starship init zsh)"
+

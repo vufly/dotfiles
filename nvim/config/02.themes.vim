@@ -44,7 +44,7 @@
 "                                       "\ | highlight link jsxAttrib BlueItalic
 
 " let g:spring_night_high_contrast = 1
-" let g:spring_night_cterm_italic = 1
+let g:spring_night_cterm_italic = 1
 colorscheme spring-night
 " let g:forest_night_enable_italic = 1
 " colorscheme forest-night
@@ -161,7 +161,7 @@ set showtabline=2
 lua <<EOF
 local gl = require('galaxyline')
 local gls = gl.section
-gl.short_line_list = {'LuaTree','vista','dbui'}
+gl.short_line_list = {'NvimTree','vista','dbui'}
 
 local colors = {
   bg = '#282c34',

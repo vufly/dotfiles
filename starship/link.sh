@@ -1,0 +1,1 @@
+ln -s ~/Tweaking/dotfiles/starship/starship.toml ~/.config/starship.toml

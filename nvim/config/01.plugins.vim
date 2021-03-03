@@ -1,7 +1,7 @@
 """ Vim-Plug
 :call plug#begin('~/.config/nvim')
 
-""" NERDtree
+"" NERDtree
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
@@ -10,6 +10,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'alampros/vim-styled-jsx'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'glepnir/indent-guides.nvim'
 
 """ Status line
 " Plug 'itchyny/lightline.vim'
@@ -38,10 +39,14 @@ Plug 'wakatime/vim-wakatime'
 """ Ultility
 Plug 'djoshea/vim-autoread'
 Plug 'airblade/vim-rooter'
-Plug 'machakann/vim-sandwich'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
 Plug 'psliwka/vim-smoothie'
 Plug 'mhinz/vim-startify'
 Plug 'preservim/nerdcommenter'
+Plug 'rmagatti/auto-session'
+Plug 'jiangmiao/auto-pairs'
+Plug 'f-person/git-blame.nvim'
 
 """ Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -51,5 +56,11 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'glepnir/zephyr-nvim'
+" Plug 'p00f/nvim-ts-rainbow'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-frecency.nvim'
+Plug 'tami5/sql.nvim'
 
 call plug#end()

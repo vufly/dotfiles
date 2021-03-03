@@ -1,3 +1,20 @@
+let g:coc_global_extensions = [
+  \'coc-css',
+  \'coc-cssmodules',
+  \'coc-docker',
+  \'coc-eslint',
+  \'coc-explorer',
+  \'coc-html',
+  \'coc-json',
+  \'coc-marketplace',
+  \'coc-prettier',
+  \'coc-svelte',
+  \'coc-svg',
+  \'coc-tsserver',
+  \'coc-vetur']
+
+hi! CocErrorSign ctermfg=203 guifg=#ff6a6f
+
 " TextEdit might fail if hidden is not set.
 set hidden
 

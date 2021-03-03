@@ -1,4 +1,5 @@
 {
+  "explorer.file.autoReveal": true,
   "explorer.file.showHiddenFiles": true,
   "explorer.git.showIgnored": true,
   "explorer.icon.enableNerdfont": true,
