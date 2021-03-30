@@ -155,6 +155,7 @@ source $(dirname $(gem which colorls))/tab_complete.sh
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
+export N_PRESERVE_NPM=1
 
 # eval "$(starship init zsh)"
 
