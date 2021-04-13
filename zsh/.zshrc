@@ -159,3 +159,4 @@ export N_PRESERVE_NPM=1
 
 # eval "$(starship init zsh)"
 
+export PATH="/usr/local/sbin:$PATH"

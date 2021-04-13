@@ -29,12 +29,13 @@ set nu rnu
 set cursorline
 
 "set listchars=space:.,tab:>-
-set list
+" set list
 set listchars=
 "set listchars+=tab:▓░
 "set listchars+=tab:░\ 
 set listchars+=tab:˲\ 
 "set listchars+=eol:¬
+set listchars+=eol:↩
 set listchars+=trail:·
 set listchars+=extends:»
 set listchars+=precedes:«

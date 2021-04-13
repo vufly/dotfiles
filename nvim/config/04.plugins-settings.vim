@@ -77,3 +77,27 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
 let g:gitblame_date_format = '%b %d %Y, %H:%M'
+
+""" indent blankline
+let g:indent_blankline_char = '▏'
+let g:indent_blankline_show_end_of_line = v:true
+let g:indent_blankline_use_treesitter = v:true
+let g:indent_blankline_filetype_exclude = ['help','dashboard','dashpreview','NvimTree','coc-explorer','startify','vista','sagahover']
+" let g:indent_blankline_show_first_indent_level = v:false
+let g:indent_blankline_show_trailing_blankline_indent = v:false
+
+" highlight IndentBlanklineChar1 guifg=#FFFF40 gui=nocombine
+" highlight IndentBlanklineChar2 guifg=#7FFF7F gui=nocombine
+" highlight IndentBlanklineChar3 guifg=#FF7FFF gui=nocombine
+" highlight IndentBlanklineChar4 guifg=#4FECEC gui=nocombine
+highlight IndentBlanklineChar1 guibg=#4E5F00 guifg=#788898 gui=nocombine
+highlight IndentBlanklineChar2 guibg=#005A00 guifg=#788898 gui=nocombine
+highlight IndentBlanklineChar3 guibg=#53005C guifg=#788898 gui=nocombine
+highlight IndentBlanklineChar4 guibg=#004B4F guifg=#788898 gui=nocombine
+highlight IndentBlanklineSpaceChar1 guibg=#4E5F00 gui=nocombine
+highlight IndentBlanklineSpaceChar2 guibg=#005A00 gui=nocombine
+highlight IndentBlanklineSpaceChar3 guibg=#53005C gui=nocombine
+highlight IndentBlanklineSpaceChar4 guibg=#004B4F gui=nocombine
+
+let g:indent_blankline_char_highlight_list = ['IndentBlanklineChar1', 'IndentBlanklineChar2', 'IndentBlanklineChar3', 'IndentBlanklineChar4']
+let g:indent_blankline_space_char_highlight_list = ['IndentBlanklineSpaceChar1', 'IndentBlanklineSpaceChar2', 'IndentBlanklineSpaceChar3', 'IndentBlanklineSpaceChar4']

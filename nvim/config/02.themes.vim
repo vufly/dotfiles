@@ -15,17 +15,18 @@
 "augroup END
 "autocmd VimEnter * highlight link typescriptProp AquaBold
 
-"let g:material_theme_style = 'palenight'
-"let g:material_terminal_italics = 1
-"colorscheme material
+" let g:material_theme_style = 'palenight'
+" let g:material_terminal_italics = 1
+" colorscheme material
 
 "let ayucolor="light"  " for light version of theme
 "let ayucolor="mirage" " for mirage version of theme
 "let ayucolor="dark"   " for dark version of theme
 "colorscheme ayu
 
-"let g:sonokai_style = 'atlantis'
-"let g:sonokai_enable_italic = 1
+" let g:sonokai_style = 'atlantis'
+" let g:sonokai_enable_italic = 1
+" colorscheme sonokai
 "autocmd VimEnter * colorscheme sonokai  | highlight link htmlTagName markdownH1
                                       "\ | highlight link htmlTagN markdownH1
                                       "\ | highlight link htmlSpecialTagName markdownH1
@@ -46,8 +47,8 @@
 " let g:spring_night_high_contrast = 1
 let g:spring_night_cterm_italic = 1
 colorscheme spring-night
-" let g:forest_night_enable_italic = 1
-" colorscheme forest-night
+" let g:everforest_enable_italic = 1
+" colorscheme everforest
 
 " colorscheme purify
 " colorscheme challenger_deep
@@ -58,8 +59,6 @@ colorscheme spring-night
 "autocmd VimEnter * colorscheme spring-night
 
 " let g:gruvbox_material_enable_bold = 1
-" let g:gruvbox_material_enable_italic = 1
-" let g:gruvbox_material_enable_italic = 1
 " let g:gruvbox_material_enable_italic = 1
 " colorscheme gruvbox-material
 

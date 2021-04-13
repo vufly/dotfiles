@@ -10,7 +10,7 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'sheerun/vim-polyglot'
 " Plug 'alampros/vim-styled-jsx'
 " Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'glepnir/indent-guides.nvim'
+" Plug 'glepnir/indent-guides.nvim'
 
 """ Status line
 " Plug 'itchyny/lightline.vim'
@@ -24,12 +24,12 @@ Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim'
 Plug 'sainnhe/sonokai'
-Plug 'sainnhe/forest-night'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/gruvbox-material'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
 Plug 'franbach/miramare'
-Plug 'sainnhe/gruvbox-material'
-Plug 'sainnhe/edge'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'vufly/dracula-vim', { 'as': 'dracula' }
 
@@ -56,11 +56,12 @@ Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/playground'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'glepnir/zephyr-nvim'
-" Plug 'p00f/nvim-ts-rainbow'
+Plug 'p00f/nvim-ts-rainbow'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'tami5/sql.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
 
 call plug#end()

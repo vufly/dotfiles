@@ -52,3 +52,8 @@ thiendia88.com###adBottom
 
 ! 4/10/2020 https://thiendia88.com
 ||thiendia88.com/popup.js
+
+! 2021-04-13 https://thiendia88.com
+thiendia88.com##.cat_tab
+thiendia88.com##.block--category1.block--category.block > .block-container > .block-header
+thiendia88.com##.extraFooter
