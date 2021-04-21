@@ -15,8 +15,9 @@
 "augroup END
 "autocmd VimEnter * highlight link typescriptProp AquaBold
 
-" let g:material_theme_style = 'palenight'
-" let g:material_terminal_italics = 1
+" let g:material_style = 'palenight'
+" let g:material_italic_comments=1
+" let g:material_italic_functions=1
 " colorscheme material
 
 "let ayucolor="light"  " for light version of theme
@@ -47,16 +48,22 @@
 " let g:spring_night_high_contrast = 1
 let g:spring_night_cterm_italic = 1
 colorscheme spring-night
+
+" let g:tokyonight_style = 'storm'
+" let g:tokyonight_italic_keywords = 1
+" let g:tokyonight_dark_float = 1
+" colorscheme tokyonight
+
 " let g:everforest_enable_italic = 1
 " colorscheme everforest
-
+" colorscheme omni
+" colorscheme aurora
 " colorscheme purify
 " colorscheme challenger_deep
 " colorscheme dracula
 
 " let g:miramare_enable_italic = 1
 " colorscheme miramare
-"autocmd VimEnter * colorscheme spring-night
 
 " let g:gruvbox_material_enable_bold = 1
 " let g:gruvbox_material_enable_italic = 1

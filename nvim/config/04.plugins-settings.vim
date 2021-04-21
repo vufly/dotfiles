@@ -53,10 +53,10 @@ nnoremap <leader>n ::NvimTreeToggle<CR>
 " NvimTreeOpen and NvimTreeClose are also available if you need them
 
 " autocmd BufEnter * if expand('%') =~ 'NvimTree' && bufname('%') !~ 'NvimTree' && winnr('$') > 1 |
-"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-"     \ buffer# | execute "normal! \<c-w>\<c-w>" | :blast | endif
+    " \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
+    " \ buffer# | execute "normal! \<c-w>\<c-w>" | :blast | endif
 
-au BufEnter * if expand('%') =~ 'NvimTree' && bufname('%') !~ 'NvimTree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | endif
+" au BufEnter * if expand('%') =~ 'NvimTree' && bufname('%') !~ 'NvimTree' && winnr('$') > 1 | b# | exe "normal! \<c-w>\<c-w>" | endif
 
 
 " If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
@@ -76,7 +76,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 " nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 " nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
 
-let g:gitblame_date_format = '%b %d %Y, %H:%M'
+let g:gitblame_date_format = '%r'
 
 """ indent blankline
 let g:indent_blankline_char = '▏'
@@ -101,3 +101,22 @@ highlight IndentBlanklineSpaceChar4 guibg=#004B4F gui=nocombine
 
 let g:indent_blankline_char_highlight_list = ['IndentBlanklineChar1', 'IndentBlanklineChar2', 'IndentBlanklineChar3', 'IndentBlanklineChar4']
 let g:indent_blankline_space_char_highlight_list = ['IndentBlanklineSpaceChar1', 'IndentBlanklineSpaceChar2', 'IndentBlanklineSpaceChar3', 'IndentBlanklineSpaceChar4']
+
+""" Nvim spectre
+nnoremap <leader>S :lua require('spectre').open()<CR>
+
+"search current word
+nnoremap <leader>sw viw:lua require('spectre').open_visual()<CR>
+" vnoremap <leader>s :lua require('spectre').open_visual()<CR>
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+
+lua <<EOF
+require('spectre').setup({
+  color_devicons = true,
+  line_sep_start = '',
+  result_padding = '├─ ',
+  line_sep       = '',
+  is_open_target_win = false --open file on opener window
+})
+EOF

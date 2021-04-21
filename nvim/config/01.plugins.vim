@@ -2,9 +2,9 @@
 :call plug#begin('~/.config/nvim')
 
 "" NERDtree
-Plug 'scrooloose/nerdtree'
-Plug 'ryanoasis/vim-devicons'
-Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
+" Plug 'scrooloose/nerdtree'
+" Plug 'ryanoasis/vim-devicons'
+" Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 """ Highlighting
 " Plug 'sheerun/vim-polyglot'
@@ -13,25 +13,27 @@ Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 " Plug 'glepnir/indent-guides.nvim'
 
 """ Status line
-" Plug 'itchyny/lightline.vim'
-" Plug 'taohexxx/lightline-buffer'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'romgrk/barbar.nvim'
 Plug 'glepnir/galaxyline.nvim'
 
 """ Colorschemes
-Plug 'kaicataldo/material.vim', { 'branch': 'main' }
 Plug 'ayu-theme/ayu-vim'
 Plug 'challenger-deep-theme/vim'
-Plug 'sainnhe/sonokai'
-Plug 'sainnhe/everforest'
-Plug 'sainnhe/edge'
-Plug 'sainnhe/gruvbox-material'
-Plug 'rhysd/vim-color-spring-night'
-Plug 'kyoz/purify', { 'rtp': 'vim' }
-Plug 'franbach/miramare'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'folke/tokyonight.nvim'
+Plug 'franbach/miramare'
+Plug 'kyoz/purify', { 'rtp': 'vim' }
+Plug 'marko-cerovac/material.nvim', { 'branch': 'main' }
+Plug 'ray-x/aurora'
+Plug 'rhysd/vim-color-spring-night'
+Plug 'sainnhe/edge'
+Plug 'sainnhe/everforest'
+Plug 'sainnhe/gruvbox-material'
+Plug 'sainnhe/sonokai'
+Plug 'tjdevries/colorbuddy.nvim'
 Plug 'vufly/dracula-vim', { 'as': 'dracula' }
+Plug 'yonlu/omni.vim'
 
 """ Productivity
 Plug 'wakatime/vim-wakatime'
@@ -47,6 +49,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'rmagatti/auto-session'
 Plug 'jiangmiao/auto-pairs'
 Plug 'f-person/git-blame.nvim'
+Plug 'windwp/nvim-spectre'
 
 """ Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
