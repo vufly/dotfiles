@@ -281,7 +281,7 @@ See the above repository for updates as well as full license text. */
   --arrowpanel-menuitem-padding: 4px !important;
   --panel-font-size: inherit !important;
   --arrowpanel-padding: 0.8em !important;
-  --tab-min-height: 28px !important;
+  --tab-min-height: 32px !important;
   --tab-border-radius: 0px !important;
 }
 
@@ -295,9 +295,9 @@ menupopup > menu{ padding-block: 0.3em !important; }
   box-shadow: inset 0 var(--tabs-shadow-size) 0 var(--tabs-border-color) !important;
 }
 
-/* #tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 2px; }
+#tabbrowser-tabs{ --uc-tabs-scrollbutton-border: 2px; }
 #scrollbutton-up,
-#scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; } */
+#scrollbutton-down{ border-block-width: var(--uc-tabs-scrollbutton-border,0px) !important; }
 
 /* OPTIONAL - show audio label in compact mode */
 /*
