@@ -1,0 +1,1 @@
+ln -s ~/Tweaking/dotfiles/kitty/kitty.conf ~/.config/kitty/kitty.conf

@@ -24,7 +24,7 @@ Plug 'drewtempelmeyer/palenight.vim'
 Plug 'folke/tokyonight.nvim'
 Plug 'franbach/miramare'
 Plug 'kyoz/purify', { 'rtp': 'vim' }
-Plug 'marko-cerovac/material.nvim', { 'branch': 'main' }
+Plug 'marko-cerovac/material.nvim'
 Plug 'ray-x/aurora'
 Plug 'rhysd/vim-color-spring-night'
 Plug 'sainnhe/edge'
@@ -50,6 +50,7 @@ Plug 'rmagatti/auto-session'
 Plug 'jiangmiao/auto-pairs'
 Plug 'f-person/git-blame.nvim'
 Plug 'windwp/nvim-spectre'
+Plug 'tpope/vim-sleuth'
 
 """ Coc.nvim
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -65,6 +66,6 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-telescope/telescope-frecency.nvim'
 Plug 'tami5/sql.nvim'
-Plug 'lukas-reineke/indent-blankline.nvim', {'branch': 'lua'}
+Plug 'lukas-reineke/indent-blankline.nvim'
 
 call plug#end()
