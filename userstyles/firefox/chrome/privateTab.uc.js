@@ -27,7 +27,7 @@ UC.privateTab = {
 
     let {document} = win;
 
-    let openAll = document.getElementById('placesContext_openContainer:tabs');
+    let openAll = document.getElementById('placesContext_openBookmarkContainer:tabs');
     let openAllPrivate = _uc.createElement(document, 'menuitem', {
       id: 'openAllPrivate',
       label: 'Open All in Private Tabs',
@@ -100,6 +100,7 @@ UC.privateTab = {
       label: 'Open Link in New Private Tab',
       accesskey: 'v',
       class: 'menuitem-iconic privatetab-icon',
+      hidden: true
     });
 
     openLink.addEventListener('command', (e) => {
@@ -111,6 +112,7 @@ UC.privateTab = {
     }, false);
 
     document.getElementById('contentAreaContextMenu').addEventListener('popupshowing', this.contentContext);
+    document.getElementById('contentAreaContextMenu').addEventListener('popuphidden', this.hideContext);
     document.getElementById('context-openlinkintab').insertAdjacentElement('afterend', openLink);
 
     let toggleTab = _uc.createElement(document, 'menuitem', {
@@ -138,10 +140,9 @@ UC.privateTab = {
       if (e.button == 0) {
         UC.privateTab.BrowserOpenTabPrivate(win);
       } else if (e.button == 2) {
-        document.popupNode = document.getElementById(UC.privateTab.BTN_ID);
         document.getElementById('toolbar-context-menu').openPopup(this, 'after_start', 14, -10, false, false);
-        document.getElementsByClassName('customize-context-removeFromToolbar')[0].disabled = false;
-        document.getElementsByClassName('customize-context-moveToPanel')[0].disabled = false;
+        //document.getElementsByClassName('customize-context-removeFromToolbar')[0].disabled = false;
+        //document.getElementsByClassName('customize-context-moveToPanel')[0].disabled = false;
         e.preventDefault();
       }
     });
@@ -151,28 +152,25 @@ UC.privateTab = {
     gBrowser.tabContainer.addEventListener('TabSelect', this.onTabSelect);
 
     gBrowser.privateListener = (e) => {
-        let browser = e.target;
-        let tab = gBrowser.getTabForBrowser(browser);
-        if (!tab)
-          return;
-        let isPrivate = this.isPrivate(tab);
-      
-        if (!isPrivate) {
-          if (this.observePrivateTabs) {
-            this.openTabs.delete(tab);
-            if (!this.openTabs.size)
-              this.clearData();
-          }
-          return;
+      let browser = e.target;
+      let tab = gBrowser.getTabForBrowser(browser);
+      if (!tab)
+        return;
+      let isPrivate = this.isPrivate(tab);
+    
+      if (!isPrivate) {
+        if (this.observePrivateTabs) {
+          this.openTabs.delete(tab);
+          if (!this.openTabs.size)
+            this.clearData();
         }
+        return;
+      }
 
-        if (this.observePrivateTabs)
-          this.openTabs.add(tab)
+      if (this.observePrivateTabs)
+        this.openTabs.add(tab)
 
-        if ('useGlobalHistory' in browser.browsingContext) // fx78+
-          browser.browsingContext.useGlobalHistory = false;
-        else // fx77-
-          browser.messageManager.loadFrameScript(this.frameScript, false);
+      browser.browsingContext.useGlobalHistory = false;
     }
 
     win.addEventListener('XULFrameLoaderCreated', gBrowser.privateListener);
@@ -396,6 +394,11 @@ UC.privateTab = {
       gContextMenu.showItem('context-openlinkincontainertab', false);
   },
 
+  hideContext: function (e) {
+    if (e.target == this)
+      e.view.document.getElementById('openLinkInPrivateTab').hidden = true;
+  },
+
   tabContext: function (e) {
     let win = e.view;
     win.document.getElementById('toggleTabPrivateState').setAttribute('checked', win.TabContextMenu.contextTab.userContextId == UC.privateTab.container.userContextId);
@@ -406,8 +409,8 @@ UC.privateTab = {
     let {document} = win;
     document.getElementById('openPrivate').disabled = document.getElementById('placesContext_open:newtab').disabled;
     document.getElementById('openPrivate').hidden = document.getElementById('placesContext_open:newtab').hidden;
-    document.getElementById('openAllPrivate').disabled = document.getElementById('placesContext_openContainer:tabs').disabled;
-    document.getElementById('openAllPrivate').hidden = document.getElementById('placesContext_openContainer:tabs').hidden;
+    document.getElementById('openAllPrivate').disabled = document.getElementById('placesContext_openBookmarkContainer:tabs').disabled;
+    document.getElementById('openAllPrivate').hidden = document.getElementById('placesContext_openBookmarkContainer:tabs').hidden;
     document.getElementById('openAllLinksPrivate').disabled = document.getElementById('placesContext_openLinks:tabs').disabled;
     document.getElementById('openAllLinksPrivate').hidden = document.getElementById('placesContext_openLinks:tabs').hidden;
   },
@@ -440,17 +443,13 @@ UC.privateTab = {
   orig_openTabset: PlacesUIUtils.openTabset,
   orig__openNodeIn: PlacesUIUtils._openNodeIn,
 
-  frameScript: 'data:application/javascript;charset=UTF-8,' + encodeURIComponent('(' + (() => {
-    content.docShell.useGlobalHistory = false;
-  }).toString() + ')();'),
-
   BTN_ID: 'privateTab-button',
   BTN2_ID: 'newPrivateTab-button',
 
   setStyle: function () {
     this.STYLE = {
       url: Services.io.newURI('data:text/css;charset=UTF-8,' + encodeURIComponent(`
-        @-moz-document url('${_uc.BROWSERCHROME}') {
+        @-moz-document url('${_uc.BROWSERCHROME}'), url-prefix('chrome://browser/content/places/') {
           #private-mask[enabled="true"] {
             display: block !important;
           }
@@ -535,6 +534,7 @@ UC.privateTab = {
       gBrowser.tabContainer.removeEventListener('TabClose', this.onTabClose);
       win.addEventListener('XULFrameLoaderCreated', gBrowser.privateListener);
       doc.getElementById('contentAreaContextMenu').removeEventListener('popupshowing', this.contentContext);
+      doc.getElementById('contentAreaContextMenu').removeEventListener('popuphidden', this.hideContext);
       doc.getElementById('tabContextMenu').removeEventListener('popupshowing', this.tabContext);
       win.MozElements.MozTab.prototype.getAttribute = this.orig_getAttribute;
       win.Object.defineProperty(gBrowser.tabContainer, 'allTabs', {

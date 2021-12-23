@@ -1,3 +1,24 @@
+# SSH Socket
+# Removing Linux SSH socket and replacing it by link to wsl2-ssh-pageant socket
+export SSH_AUTH_SOCK=$HOME/.ssh/agent.sock 
+ss -a | grep $SSH_AUTH_SOCK 
+if [ $? -ne 0 ]; then
+  rm -f $SSH_AUTH_SOCK
+  setsid nohup socat UNIX-LISTEN:$SSH_AUTH_SOCK,fork EXEC:$HOME/.ssh/wsl2-ssh-pageant.exe &>/dev/null &
+fi
+# GPG Socket
+# Removing Linux GPG Agent socket and replacing it by link to wsl2-ssh-pageant GPG socket
+export GPG_AGENT_SOCK=$HOME/.gnupg/S.gpg-agent 
+ss -a | grep $GPG_AGENT_SOCK 
+if [ $? -ne 0 ]; then
+  rm -rf $GPG_AGENT_SOCK
+  setsid nohup socat UNIX-LISTEN:$GPG_AGENT_SOCK,fork EXEC:"$HOME/.ssh/wsl2-ssh-pageant.exe --gpg S.gpg-agent" &>/dev/null &
+fi
+
+
+eval `keychain --eval --agents ssh id_ed25519`
+eval `keychain --eval --agents ssh id_rsa`
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -9,7 +30,7 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/crossian/.oh-my-zsh"
+export ZSH="/home/vudinhn/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -118,6 +139,17 @@ export QMK_HOME="~/Tweaking/qmk_firmware"
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+export N_PRESERVE_NPM=1
+export PATH="/usr/local/sbin:$PATH"
+export PATH="$HOME/.rbenv/bin:$PATH"
+export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+export PATH="/home/vudinhn/.pyenv/bin:$PATH"
+
+if grep -q WSL2 /proc/version; then
+    # execute route.exe in the windows to determine its IP address
+    export DISPLAY=$(route.exe print | grep 0.0.0.0 | head -1 | awk '{print $4}'):0.0
+    export LIBGL_ALWAYS_INDIRECT=0
+fi
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -131,7 +163,7 @@ unalias grv
 
 alias ls='colorls --sd'
 alias ll='colorls -lA --sd'
-alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew outdated --cask; brew upgrade --cask; brew doctor --verbose; rm -rf $(brew --cache)"
+# alias brewup="brew update; brew upgrade; brew cleanup; brew doctor; brew outdated --cask; brew upgrade --cask; brew doctor --verbose; rm -rf $(brew --cache)"
 
 #alias tmux="env TERM=screen-256color tmux"
 alias t="tmux"
@@ -148,15 +180,22 @@ alias codi="code-insiders"
 
 eval "$(rbenv init -)"
 eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 source $(dirname $(gem which colorls))/tab_complete.sh
+
+# fork(){
+#   [ "$#" -ne 1 ] && { echo "Usage: fork /path/to/repo"; return 1; }
+#   path1="\\\wsl\$\Fedora-33$(realpath "$1")"
+#   powershell.exe start-process "C:\Users\DinhVuNguyen\AppData\Local\Fork\Fork.exe" "$path1"
+# }
+
+export WINUSER=$(pushd /mnt/c > /dev/null && cmd.exe /q /c "echo %USERNAME%" | rev | cut -c 2- | rev ) 
+alias fork='load_fork() { /mnt/c/Users/$WINUSER/AppData/Local/Fork/Fork.exe $(wslpath -w $@) };load_fork'
+
+sudo /usr/sbin/ip link set dev eth0 mtu 1400
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-export PATH="/usr/local/opt/swagger-codegen@2/bin:$PATH"
-export N_PRESERVE_NPM=1
-
-# eval "$(starship init zsh)"
-
-export PATH="/usr/local/sbin:$PATH"
+if [ -e /home/vudinhn/.nix-profile/etc/profile.d/nix.sh ]; then . /home/vudinhn/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

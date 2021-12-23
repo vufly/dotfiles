@@ -18,14 +18,14 @@ UC.openInUnloadedTab = {
   exec: function (win) {
     let {document} = win;
 
-    let openAll = document.getElementById('placesContext_openContainer:tabs');
+    let openAll = document.getElementById('placesContext_openBookmarkContainer:tabs');
     let openAllUnloaded = _uc.createElement(document, 'menuitem', {
       id: 'openAllUnloaded',
       label: 'Open All in Unloaded Tabs',
       accesskey: 'u',
       disabled: 'true',
       hidden: 'true',
-      oncommand: 'let view = PlacesUIUtils.getViewForNode(document.popupNode); UC.openInUnloadedTab.openTabs(window, view.selectedNode || view.selectedNodes || view.result.root);',
+      oncommand: 'let view = PlacesUIUtils.getViewForNode(PlacesUIUtils.lastContextMenuTriggerNode); UC.openInUnloadedTab.openTabs(window, view.selectedNode || view.selectedNodes || view.result.root);',
     });
     openAll.insertAdjacentElement('afterend', openAllUnloaded);
 
@@ -36,7 +36,7 @@ UC.openInUnloadedTab = {
       accesskey: 'u',
       disabled: 'true',
       hidden: 'true',
-      oncommand: 'let view = PlacesUIUtils.getViewForNode(document.popupNode); UC.openInUnloadedTab.openTabs(window, view.selectedNode || view.selectedNodes || view.result.root);',
+      oncommand: 'let view = PlacesUIUtils.getViewForNode(PlacesUIUtils.lastContextMenuTriggerNode); UC.openInUnloadedTab.openTabs(window, view.selectedNode || view.selectedNodes || view.result.root);',
     });
     openAllLinks.insertAdjacentElement('afterend', openAllLinksUnloaded);
 
@@ -47,7 +47,7 @@ UC.openInUnloadedTab = {
       accesskey: 'u',
       disabled: 'true',
       hidden: 'true',
-      oncommand: 'let view = PlacesUIUtils.getViewForNode(document.popupNode); UC.openInUnloadedTab.openTab(window, view.selectedNode.uri);',
+      oncommand: 'let view = PlacesUIUtils.getViewForNode(PlacesUIUtils.lastContextMenuTriggerNode); UC.openInUnloadedTab.openTab(window, view.selectedNode.uri);',
     });
     openTab.insertAdjacentElement('afterend', openUnloaded);
 
@@ -59,12 +59,14 @@ UC.openInUnloadedTab = {
     let menuitem = _uc.createElement(document, 'menuitem', {
           id: 'openLinkInUnloadedTab',
           label: 'Open Link in Unloaded Tab',
+          hidden: true
         });
     menuitem.addEventListener('command', () => this.openTab(win, win.gContextMenu.linkURL, win.gContextMenu.linkTextStr));
 
     let contextMenu = document.getElementById('contentAreaContextMenu');
     document.getElementById('context-openlinkintab').insertAdjacentElement('afterend', menuitem);
     contextMenu.addEventListener('popupshowing', this.contentContext);
+    contextMenu.addEventListener('popuphidden', this.hideContext);
   },
 
   openTab: async function (win, url, linkText) {
@@ -124,12 +126,17 @@ UC.openInUnloadedTab = {
     gContextMenu.showItem('openLinkInUnloadedTab', gContextMenu.onSaveableLink || gContextMenu.onPlainTextLink);
   },
 
+  hideContext: function (e) {
+    if (e.target == this)
+      e.view.document.getElementById('openLinkInUnloadedTab').hidden = true;
+  },
+
   placesContext: function (e) {
     let win = e.view;
     let {document} = win;
     let browserWindow = BrowserWindowTracker.getTopWindow();
-    document.getElementById('openAllUnloaded').disabled = !browserWindow || document.getElementById('placesContext_openContainer:tabs').disabled;
-    document.getElementById('openAllUnloaded').hidden = !browserWindow || document.getElementById('placesContext_openContainer:tabs').hidden;
+    document.getElementById('openAllUnloaded').disabled = !browserWindow || document.getElementById('placesContext_openBookmarkContainer:tabs').disabled;
+    document.getElementById('openAllUnloaded').hidden = !browserWindow || document.getElementById('placesContext_openBookmarkContainer:tabs').hidden;
     document.getElementById('openAllLinksUnloaded').disabled = !browserWindow || document.getElementById('placesContext_openLinks:tabs').disabled;
     document.getElementById('openAllLinksUnloaded').hidden = !browserWindow || document.getElementById('placesContext_openLinks:tabs').hidden;
     document.getElementById('openUnloaded').disabled = !browserWindow || document.getElementById('placesContext_open:newtab').disabled;
@@ -172,6 +179,7 @@ UC.openInUnloadedTab = {
       doc.getElementById('placesContext').removeEventListener('popupshowing', this.placesContext);
       doc.getElementById('openLinkInUnloadedTab')?.remove();
       doc.getElementById('contentAreaContextMenu')?.removeEventListener('popupshowing', this.contentContext);
+      doc.getElementById('contentAreaContextMenu')?.removeEventListener('popuphidden', this.hideContext);
     }, false);
 
     delete UC.openInUnloadedTab;
