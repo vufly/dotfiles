@@ -12,6 +12,7 @@ slider,
 .theme-body,
 .urlbar-input-container,
 .tabbrowser-tab,
+#vertical-tabs-pane,
 .toolbar-items,
 #tabs-newtab-button,
 .table-widget-empty-text {
@@ -159,12 +160,7 @@ slider,
 
  /* glow favicon for dark tab */
 .tab-icon-image {
-  /*   display: block !important; */
   filter: drop-shadow(0 0 2px white) drop-shadow(0 0 1px white);
-  /* background-color: white !important;
-  border-radius: 10%;
-  padding: 1px;
-  transform: scale(1.25); */
 }
 
 .tab-background::after {
@@ -189,8 +185,6 @@ slider,
 }
 
 .tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
-/*   background: none !important; */
-/*   background-color: linear-gradient(to right, transparent 10%, var(--identity-tab-color) 10%, var(--identity-tab-color) 90%, transparent 90%); */
   background-color: var(--identity-tab-color) !important;
   transform: scaleX(.8);
   transition: transform 0.5s cubic-bezier(.16,1.08,.38,.98);
@@ -343,5 +337,78 @@ menupopup > menu{ padding-block: 0.3em !important; }
 
 /* duskFox vertical tab bar */
 :root[vertical-tabs="true"] #TabsToolbar {
-  visibility: collapse;
+  visibility: collapse !important;
+}
+
+#vertical-tabs-pane {
+  padding: 0 !important;
+}
+
+#vertical-tabs-inner-box {
+  height: unset !important;
+}
+
+#vertical-tabs-buttons-row {
+  padding: 0 6px;
+}
+
+#vertical-tabs-pane toolbaritem {
+  min-height: 32px;
+  padding-left: 6px;
+  border-radius: 0 !important;
+}
+
+#vertical-tabs-pane toolbaritem:not([selected]):hover {
+  box-shadow: inset 0 -30px 25px #f1b0f540 !important;
+}
+
+#vertical-tabs-pane toolbaritem[selected] {
+  font-weight: 700 !important;
+  box-shadow: inset 0 -30px 25px #f1b0f540 !important;
+}
+
+#vertical-tabs-pane toolbaritem .all-tabs-button .toolbarbutton-icon {
+  filter: drop-shadow(0 0 2px white) drop-shadow(0 0 1px white);
+}
+
+#vertical-tabs-pane toolbaritem .subviewbutton {
+  appearance: menubar !important;
+}
+
+#vertical-tabs-pane toolbaritem::before {
+  height: 100%;
+  width: 2px;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: "";
+  background-color: var(--identity-tab-color) !important;
+  transform: scaleY(.8);
+  transition: transform 0.5s cubic-bezier(.16,1.08,.38,.98);
+}
+
+#vertical-tabs-pane toolbaritem:hover::before,
+#vertical-tabs-pane toolbaritem[selected="true"]::before {
+  transform: scaleX(1);
+}
+
+#vertical-tabs-pane toolbaritem::after {
+  height: 4px;
+  width: 100%;
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  transition: transform .5s cubic-bezier(.16,1.08,.38,.98);
+}
+
+#vertical-tabs-pane toolbaritem:not([selected="true"], [multiselected])::after {
+  transform: scaleX(0) !important;
+}
+
+#vertical-tabs-pane toolbaritem[selected="true"]::after {
+  background: linear-gradient(90deg, #9059FF 0%, #FF4AA2 52.08%, #FFBD4F 100%) !important;
+  transform: scaleX(1);
 }
