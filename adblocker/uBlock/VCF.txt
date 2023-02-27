@@ -33,5 +33,7 @@ forums.voz.vn##.sponsor
 ||axwxrnk5ydzy.com
 
 
-! 2/19/2023 https://manhwa18.com
+! 2/19/2023 https://rphangx.net
 rphangx.net##.samCodeUnit
+rphangx.net##.sam-swiper-container
+rphangx.net##.samBannerUnit
