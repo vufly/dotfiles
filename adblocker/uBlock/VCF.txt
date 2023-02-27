@@ -26,34 +26,12 @@ truyenqq.com###image_popup_wrapper
 truyenqq.com###image_popup_background
 truyenqq.com##.left-banner
 
-! 10/17/2019 https://beeng.net
-beeng.net##.fullpage_ads
-
 ! 10/28/2019 https://forums.voz.vn
 forums.voz.vn##.sponsor
-
-! 10/30/2019 https://beeng.net
-beeng.net##.displaya-top
-
-! 12/6/2019 https://thiendia88.com
-thiendia88.com##.xbWelcomeBar
-
-! 1/14/2020 https://thiendia88.com
-thiendia88.com##.my_responsive_ads
-thiendia88.com##.my_nonresponsive_ads
-thiendia88.com##footer .pageWidth
-thiendia88.com##center
-
-! 2/6/2020 https://thiendia88.com
-thiendia88.com###adBottom
 
 ! 3/23/2020 https://manhwa18.com
 ||axwxrnk5ydzy.com
 
-! 4/10/2020 https://thiendia88.com
-||thiendia88.com/popup.js
 
-! 2021-04-13 https://thiendia88.com
-thiendia88.com##.cat_tab
-thiendia88.com##.block--category1.block--category.block > .block-container > .block-header
-thiendia88.com##.extraFooter
+! 2/19/2023 https://manhwa18.com
+rphangx.net##.samCodeUnit
