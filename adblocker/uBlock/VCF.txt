@@ -34,6 +34,6 @@ forums.voz.vn##.sponsor
 
 
 ! 2/19/2023 https://rphangx.net
-rphangx.net##.samCodeUnit
-rphangx.net##.sam-swiper-container
-rphangx.net##.samBannerUnit
+rphangx.tv##.samCodeUnit
+rphangx.tv##.sam-swiper-container
+rphangx.tv##.samBannerUnit
