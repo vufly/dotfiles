@@ -345,7 +345,7 @@ menupopup > menu{ padding-block: 0.3em !important; }
 }
 
 #vertical-tabs-buttons-row {
-  padding: 0 6px;
+  margin: 0 6px;
 }
 
 #vertical-tabs-pane toolbaritem {
@@ -369,6 +369,16 @@ menupopup > menu{ padding-block: 0.3em !important; }
 
 #vertical-tabs-pane toolbaritem .subviewbutton {
   appearance: menubar !important;
+}
+
+#vertical-tabs-list
+    .all-tabs-item:is([selected], [multiselected], [usercontextid]:is(:hover, [_moz-menuactive]))
+    .all-tabs-button:not([disabled]) {
+    background-image: none !important;
+}
+
+#vertical-tabs-list .all-tabs-secondary-button {
+    margin: 6px 0 !important;
 }
 
 #vertical-tabs-pane toolbaritem::before {
