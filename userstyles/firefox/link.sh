@@ -1,1 +1,0 @@
-ln ~/dotfiles/userstyles/firefox/chrome/userChrome.css ~/Library/Application\ Support/Firefox/Profiles/lf16bs5c.dev-edition-default/chrome/userChrome.css

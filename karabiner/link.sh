@@ -1,1 +1,0 @@
-ln -s ~/dotfiles/karabiner/karabiner.edn ~/.config/karabiner.edn
