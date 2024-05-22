@@ -121,12 +121,25 @@ alias 256="curl -s https://gist.githubusercontent.com/HaleTom/89ffe32783f89f403b
 alias gitzip="git archive HEAD -o ${PWD##*/}.zip"
 alias gitsf="git submodule update --init --recursive"
 alias gitsp="git submodule foreach --recursive 'git pull origin master'"
-
+alias nup="node ~/o24/da/ui-dev-scripts/ui-proxy/ui-proxy.js"
 
 export WINUSER=$(pushd /mnt/c > /dev/null && cmd.exe /q /c "echo %USERNAME%" | rev | cut -c 2- | rev ) 
 alias fork='load_fork() { /mnt/c/Users/$WINUSER/AppData/Local/Fork/Fork.exe $(wslpath -w $@) };load_fork'
 
 export GPG_TTY=$TTY
 
+. ~/.asdf/plugins/golang/set-env.zsh
+
+export ANDROID_HOME=~/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# pnpm
+export PNPM_HOME="/home/vudinhn/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
