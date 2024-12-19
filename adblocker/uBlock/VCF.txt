@@ -17,20 +17,3 @@ maclife.vn##.mfp-inline-holder.mfp-container
 maclife.vn##.mfp-ready.mfp-auto-cursor.mfp-close-btn-in.mfp-wrap
 maclife.vn###wpfront-notification-bar
 maclife.vn##.adrotate_widgets
-
-! 10/10/2019 https://beeng.net
-beeng.net##.fancybox-overlay
-beeng.net##.fancybox-wrap
-
-! 10/16/2019 https://truyenqq.com
-||truyenqq.com/qc-new/*$image
-truyenqq.com##.popup_close
-truyenqq.com###image_popup_wrapper
-truyenqq.com###image_popup_background
-truyenqq.com##.left-banner
-
-! 10/28/2019 https://forums.voz.vn
-forums.voz.vn##.sponsor
-
-! 3/23/2020 https://manhwa18.com
-||axwxrnk5ydzy.com
