@@ -6,8 +6,11 @@
 !One filter per line. A filter can be a plain hostname, or an Adblock Plus-compatible filter. Lines prefixed with ! will be ignored.
 !https://github.com/gorhill/uBlock/wiki/Static-filter-syntax
 
-! Outlook web mail free
-outlook.live.com##div:if(> div > div > i[data-icon-name="OutlookLogo"])
+! 19/12/2024 https://rphang.*
+rphang.*##.samCodeUnit
+rphang.*##.sam-swiper-container
+rphang.*##.samBannerUnit
+rphang.*##.samVideoOverlay
 
 ! 10/10/2019 https://maclife.vn
 maclife.vn##.mfp-inline-holder.mfp-container
@@ -31,12 +34,3 @@ forums.voz.vn##.sponsor
 
 ! 3/23/2020 https://manhwa18.com
 ||axwxrnk5ydzy.com
-
-
-! 4/5/2023 https://rphangx.me
-rphang.tv##.samCodeUnit
-rphang.tv##.sam-swiper-container
-rphang.tv##.samBannerUnit
-
-! 4/8/2023 https://rphangx.me
-rphang.tv##.samVideoOverlay
