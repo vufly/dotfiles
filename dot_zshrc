@@ -95,6 +95,34 @@ alias nup="node ~/o24/da/ui-dev-scripts/ui-proxy/ui-proxy.js"
 export WINUSER=$(pushd /mnt/c > /dev/null && cmd.exe /q /c "echo %USERNAME%" | rev | cut -c 2- | rev ) 
 alias fork='load_fork() { /mnt/c/Users/$WINUSER/AppData/Local/Fork/Fork.exe $(wslpath -w $@) };load_fork'
 
+gac() {
+  if [ -z "$1" ]; then
+    echo "Usage: gac <commit message>"
+    return 1
+  fi
+  git add --all
+  git commit -m "$(git branch --show-current): $1"
+}
+
+gact() {
+  # Get the current branch name
+  branch_name=$(git branch --show-current)
+
+  # Create a temporary file with the branch name prefilled
+  temp_file=$(mktemp)
+  echo "$branch_name: " > "$temp_file"
+
+  # Open the editor to edit the commit message
+  ${EDITOR:-vim} "$temp_file"
+
+  # Stage all changes and commit using the message from the file
+  git add --all
+  git commit -F "$temp_file"
+
+  # Clean up the temporary file
+  rm "$temp_file"
+}
+
 export GPG_TTY=$TTY
 
 . ~/.asdf/plugins/golang/set-env.zsh
